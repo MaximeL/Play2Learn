@@ -6,7 +6,7 @@ import android.os.Bundle;
 /**
  * Created by Marc on 30/09/2015.
  */
-public class ModeColors extends Activity {
+public class Niveau1 extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
