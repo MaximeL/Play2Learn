@@ -25,7 +25,7 @@ public class MyActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(MyActivity.this, ModeColors.class);
                 startActivity(intent);
-                overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
+                //overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
             }
         });
