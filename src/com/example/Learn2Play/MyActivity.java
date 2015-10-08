@@ -4,12 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 public class MyActivity extends Activity {
-    private ImageButton buttonJouer;
+    private ImageButton buttonNiveau1;
 
     /**
      * Called when the activity is first created.
@@ -19,9 +17,9 @@ public class MyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        buttonJouer = (ImageButton) findViewById(R.id.buttonJouer);
+        buttonNiveau1 = (ImageButton) findViewById(R.id.buttonNiveau1);
 
-        buttonJouer.setOnClickListener(new View.OnClickListener() {
+        buttonNiveau1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyActivity.this, Niveau1.class);

@@ -6,13 +6,41 @@
               android:background="@android:color/holo_blue_dark"
         >
 
+    <TextView
+            android:id="@+id/gameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Titre du jeu"
+            android:textColor="#000000"
+            android:textSize="50sp"/>
+
         <ImageButton
-                android:id="@+id/buttonJouer"
-                android:layout_gravity="center_horizontal"
+                android:id="@+id/buttonNiveau1"
+                android:layout_marginTop="130dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/button_jouer"
-                android:background="@drawable/button_jouer"/>
+                android:layout_gravity="center"
+                android:src="@drawable/button_niveau_1"
+                android:background="#00ffffff"/>
+
+    <ImageButton
+            android:id="@+id/buttonNiveau2"
+            android:layout_marginTop="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/button_niveau_1"
+            android:background="#00ffffff"/>
+
+    <ImageButton
+            android:id="@+id/buttonNiveau3"
+            android:layout_marginTop="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/button_niveau_1"
+            android:background="#00ffffff"/>
 
 </LinearLayout>
 
