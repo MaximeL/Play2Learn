@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class MyActivity extends Activity {
+public class Menu extends Activity {
     private ImageButton buttonNiveau1;
     private ImageButton buttonNiveau2;
     private ImageButton buttonNiveau3;
@@ -21,7 +21,7 @@ public class MyActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_menu);
 
         buttonNiveau1 = (ImageButton) findViewById(R.id.buttonNiveau1);
         buttonNiveau2 = (ImageButton) findViewById(R.id.buttonNiveau2);
@@ -37,7 +37,7 @@ public class MyActivity extends Activity {
             @Override
             public void onClick(View v) {
                 playSongTouch();
-                Intent intent = new Intent(MyActivity.this, Niveau1.class);
+                Intent intent = new Intent(Menu.this, Niveau1.class);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
