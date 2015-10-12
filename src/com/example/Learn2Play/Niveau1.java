@@ -80,13 +80,15 @@ public class Niveau1 extends Activity {
 
     private void newGame(){
         ArrayList<Integer> listId = new ArrayList<Integer>();
-        listId.add(0);
-        listId.add(1);
-        listId.add(2);
+        ArrayList<Integer> topListId = new ArrayList<Integer>();
+        for(int i = 0; i < Data.nbElt; i++){
+            listId.add(i);
+        }
 
         Collections.shuffle(listId);
 
         for(int i = 0; i < propositions; i++) {
+            topListId.add(listId.get(i));
             switch (listId.get(i)) {
                 case 0: {
                     if(i == 0) {
@@ -127,13 +129,52 @@ public class Niveau1 extends Activity {
                     }
                     break;
                 }
+                case 3: {
+                    if(i == 0) {
+                        imageTop1.setBackgroundResource(R.drawable.abeille_256_256);
+                        valueImageTop1 = Data.abeilleId;
+                    } else if(i == 1){
+                        imageTop2.setBackgroundResource(R.drawable.abeille_256_256);
+                        valueImageTop2 = Data.abeilleId;
+                    } else if(i == 2){
+                        imageTop3.setBackgroundResource(R.drawable.abeille_256_256);
+                        valueImageTop3 = Data.abeilleId;
+                    }
+                    break;
+                }
+                case 4: {
+                    if(i == 0) {
+                        imageTop1.setBackgroundResource(R.drawable.coccinelle_256_256);
+                        valueImageTop1 = Data.coccinelleId;
+                    } else if(i == 1){
+                        imageTop2.setBackgroundResource(R.drawable.coccinelle_256_256);
+                        valueImageTop2 = Data.coccinelleId;
+                    } else if(i == 2){
+                        imageTop3.setBackgroundResource(R.drawable.coccinelle_256_256);
+                        valueImageTop3 = Data.coccinelleId;
+                    }
+                    break;
+                }
+                case 5: {
+                    if(i == 0) {
+                        imageTop1.setBackgroundResource(R.drawable.chenille_256_256);
+                        valueImageTop1 = Data.chenilleId;
+                    } else if(i == 1){
+                        imageTop2.setBackgroundResource(R.drawable.chenille_256_256);
+                        valueImageTop2 = Data.chenilleId;
+                    } else if(i == 2){
+                        imageTop3.setBackgroundResource(R.drawable.chenille_256_256);
+                        valueImageTop3 = Data.chenilleId;
+                    }
+                    break;
+                }
                 default:
                     break;
             }
         }
 
-        Collections.shuffle(listId);
-        successItem = listId.get(0);
+        Collections.shuffle(topListId);
+        successItem = topListId.get(0);
 
         switch(successItem){
             case 0 : {
@@ -146,6 +187,18 @@ public class Niveau1 extends Activity {
             }
             case 2 : {
                 imageBot1.setBackgroundResource(R.drawable.arbre_256_256);
+                break;
+            }
+            case 3 : {
+                imageBot1.setBackgroundResource(R.drawable.abeille_256_256);
+                break;
+            }
+            case 4 : {
+                imageBot1.setBackgroundResource(R.drawable.coccinelle_256_256);
+                break;
+            }
+            case 5 : {
+                imageBot1.setBackgroundResource(R.drawable.chenille_256_256);
                 break;
             }
             default : break;

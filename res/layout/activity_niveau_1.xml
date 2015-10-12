@@ -3,14 +3,15 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
+              android:background="@drawable/background_wood_blue"
         >
 
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="35"
-                android:background="#ff0000">
+                android:layout_weight="35">
+                <!--android:background="#ff0000">-->
 
         </LinearLayout>
 
@@ -18,8 +19,8 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="20"
-                android:background="#0000ff">
+                android:layout_weight="20">
+                <!--android:background="#0000ff">-->
                 <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
@@ -70,8 +71,8 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="25"
-                android:background="#00ff00">
+                android:layout_weight="25">
+                <!--android:background="#00ff00"-->
 
                 <ImageButton
                         android:id="@+id/image_bot_1"
