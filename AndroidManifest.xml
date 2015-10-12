@@ -22,10 +22,17 @@
                 android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-                android:name=".Niveau3"
+                android:name=".Niveau2"
                 android:label="niveau2"
                 android:screenOrientation="landscape"
                 android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
+        <activity
+                android:name=".Niveau3"
+                android:label="niveau3"
+                android:screenOrientation="landscape"
+                android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+
     </application>
 </manifest>

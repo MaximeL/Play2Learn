@@ -49,6 +49,11 @@ public class Menu extends Activity {
             @Override
             public void onClick(View v) {
                 playSongTouch();
+                Intent intent = new Intent(Menu.this, Niveau2.class);
+                startActivity(intent);
+                overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
+                finish();
+                instruMenu.stop();
             }
         });
 
