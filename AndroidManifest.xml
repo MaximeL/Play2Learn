@@ -17,7 +17,13 @@
 
         <activity
                 android:name=".Niveau1"
-                android:label="Mode colors !"
+                android:label="niveau1"
+                android:screenOrientation="landscape"
+                android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+                android:name=".Niveau3"
+                android:label="niveau2"
                 android:screenOrientation="landscape"
                 android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
