@@ -170,17 +170,17 @@ public class Niveau2 extends Activity{
                 }
                 case 2: {
                     if(i == 0) {
-                        imageTop1.setBackgroundResource(R.drawable.arbre_256_256);
-                        valueImageTop1 = Data.arbreId;
+                        imageTop1.setBackgroundResource(R.drawable.feuille_256_256);
+                        valueImageTop1 = Data.feuilleId;
                     } else if(i == 1){
-                        imageTop2.setBackgroundResource(R.drawable.arbre_256_256);
-                        valueImageTop2 = Data.arbreId;
+                        imageTop2.setBackgroundResource(R.drawable.feuille_256_256);
+                        valueImageTop2 = Data.feuilleId;
                     } else if(i == 2){
-                        imageTop3.setBackgroundResource(R.drawable.arbre_256_256);
-                        valueImageTop3 = Data.arbreId;
+                        imageTop3.setBackgroundResource(R.drawable.feuille_256_256);
+                        valueImageTop3 = Data.feuilleId;
                     } else if(i == 3){
-                        imageTop4.setBackgroundResource(R.drawable.arbre_256_256);
-                        valueImageTop4 = Data.arbreId;
+                        imageTop4.setBackgroundResource(R.drawable.feuille_256_256);
+                        valueImageTop4 = Data.feuilleId;
                     }
                     break;
                 }
@@ -218,17 +218,17 @@ public class Niveau2 extends Activity{
                 }
                 case 5: {
                     if(i == 0) {
-                        imageTop1.setBackgroundResource(R.drawable.chenille_256_256);
-                        valueImageTop1 = Data.chenilleId;
+                        imageTop1.setBackgroundResource(R.drawable.ver_256_256);
+                        valueImageTop1 = Data.verId;
                     } else if(i == 1){
-                        imageTop2.setBackgroundResource(R.drawable.chenille_256_256);
-                        valueImageTop2 = Data.chenilleId;
+                        imageTop2.setBackgroundResource(R.drawable.ver_256_256);
+                        valueImageTop2 = Data.verId;
                     } else if(i == 2){
-                        imageTop3.setBackgroundResource(R.drawable.chenille_256_256);
-                        valueImageTop3 = Data.chenilleId;
+                        imageTop3.setBackgroundResource(R.drawable.ver_256_256);
+                        valueImageTop3 = Data.verId;
                     } else if(i == 3){
-                        imageTop4.setBackgroundResource(R.drawable.chenille_256_256);
-                        valueImageTop4 = Data.chenilleId;
+                        imageTop4.setBackgroundResource(R.drawable.ver_256_256);
+                        valueImageTop4 = Data.verId;
                     }
                     break;
                 }
@@ -251,7 +251,7 @@ public class Niveau2 extends Activity{
                 break;
             }
             case 2 : {
-                imageBot1.setBackgroundResource(R.drawable.arbre_256_256);
+                imageBot1.setBackgroundResource(R.drawable.feuille_256_256);
                 break;
             }
             case 3 : {
@@ -263,7 +263,7 @@ public class Niveau2 extends Activity{
                 break;
             }
             case 5 : {
-                imageBot1.setBackgroundResource(R.drawable.chenille_256_256);
+                imageBot1.setBackgroundResource(R.drawable.ver_256_256);
                 break;
             }
             default : break;
@@ -279,7 +279,7 @@ public class Niveau2 extends Activity{
                 break;
             }
             case 2 : {
-                imageBot2.setBackgroundResource(R.drawable.arbre_256_256);
+                imageBot2.setBackgroundResource(R.drawable.feuille_256_256);
                 break;
             }
             case 3 : {
@@ -291,7 +291,7 @@ public class Niveau2 extends Activity{
                 break;
             }
             case 5 : {
-                imageBot2.setBackgroundResource(R.drawable.chenille_256_256);
+                imageBot2.setBackgroundResource(R.drawable.ver_256_256);
                 break;
             }
             default : break;
