@@ -168,6 +168,58 @@ public class Niveau1 extends Activity {
                     }
                     break;
                 }
+                case 6: {
+                    if(i == 0) {
+                        imageTop1.setBackgroundResource(R.drawable.araigne_256_256);
+                        valueImageTop1 = Data.araigneId;
+                    } else if(i == 1){
+                        imageTop2.setBackgroundResource(R.drawable.araigne_256_256);
+                        valueImageTop2 = Data.araigneId;
+                    } else if(i == 2){
+                        imageTop3.setBackgroundResource(R.drawable.araigne_256_256);
+                        valueImageTop3 = Data.araigneId;
+                    }
+                    break;
+                }
+                case 7: {
+                    if(i == 0) {
+                        imageTop1.setBackgroundResource(R.drawable.sauterelle_256_256);
+                        valueImageTop1 = Data.sauterelleId;
+                    } else if(i == 1){
+                        imageTop2.setBackgroundResource(R.drawable.sauterelle_256_256);
+                        valueImageTop2 = Data.sauterelleId;
+                    } else if(i == 2){
+                        imageTop3.setBackgroundResource(R.drawable.sauterelle_256_256);
+                        valueImageTop3 = Data.sauterelleId;
+                    }
+                    break;
+                }
+                case 8: {
+                    if(i == 0) {
+                        imageTop1.setBackgroundResource(R.drawable.escargot_256_256);
+                        valueImageTop1 = Data.escargotId;
+                    } else if(i == 1){
+                        imageTop2.setBackgroundResource(R.drawable.escargot_256_256);
+                        valueImageTop2 = Data.escargotId;
+                    } else if(i == 2){
+                        imageTop3.setBackgroundResource(R.drawable.escargot_256_256);
+                        valueImageTop3 = Data.escargotId;
+                    }
+                    break;
+                }
+                case 9: {
+                    if(i == 0) {
+                        imageTop1.setBackgroundResource(R.drawable.fourmis_256_256);
+                        valueImageTop1 = Data.fourmisId;
+                    } else if(i == 1){
+                        imageTop2.setBackgroundResource(R.drawable.fourmis_256_256);
+                        valueImageTop2 = Data.fourmisId;
+                    } else if(i == 2){
+                        imageTop3.setBackgroundResource(R.drawable.fourmis_256_256);
+                        valueImageTop3 = Data.fourmisId;
+                    }
+                    break;
+                }
                 default:
                     break;
             }
@@ -199,6 +251,22 @@ public class Niveau1 extends Activity {
             }
             case 5 : {
                 imageBot1.setBackgroundResource(R.drawable.ver_256_256);
+                break;
+            }
+            case 6 : {
+                imageBot1.setBackgroundResource(R.drawable.araigne_256_256);
+                break;
+            }
+            case 7 : {
+                imageBot1.setBackgroundResource(R.drawable.sauterelle_256_256);
+                break;
+            }
+            case 8 : {
+                imageBot1.setBackgroundResource(R.drawable.escargot_256_256);
+                break;
+            }
+            case 9 : {
+                imageBot1.setBackgroundResource(R.drawable.fourmis_256_256);
                 break;
             }
             default : break;
