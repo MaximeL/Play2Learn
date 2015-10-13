@@ -44,21 +44,27 @@ public class Niveau1 extends Activity {
         imageTop1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                removeBorders();
                 selectedItem = valueImageTop1;
+                imageTop1.setImageResource(R.drawable.customborder);
             }
         });
 
         imageTop2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                removeBorders();
                 selectedItem = valueImageTop2;
+                imageTop2.setImageResource(R.drawable.customborder);
             }
         });
 
         imageTop3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                removeBorders();
                 selectedItem = valueImageTop3;
+                imageTop3.setImageResource(R.drawable.customborder);
             }
         });
 
@@ -79,6 +85,7 @@ public class Niveau1 extends Activity {
     }
 
     private void newGame(){
+        removeBorders();
         ArrayList<Integer> listId = new ArrayList<Integer>();
         ArrayList<Integer> topListId = new ArrayList<Integer>();
         for(int i = 0; i < Data.nbElt; i++){
@@ -279,5 +286,11 @@ public class Niveau1 extends Activity {
         startActivity(intent);
         overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
         finish();
+    }
+
+    public void removeBorders(){
+        imageTop1.setImageResource(R.drawable.noborder);
+        imageTop2.setImageResource(R.drawable.noborder);
+        imageTop3.setImageResource(R.drawable.noborder);
     }
 }

@@ -62,6 +62,8 @@ public class Niveau2 extends Activity{
         imageTop1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                removeBorders();
+                imageTop1.setImageResource(R.drawable.customborder);
                 selectedItem = valueImageTop1;
             }
         });
@@ -69,6 +71,8 @@ public class Niveau2 extends Activity{
         imageTop2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                removeBorders();
+                imageTop2.setImageResource(R.drawable.customborder);
                 selectedItem = valueImageTop2;
             }
         });
@@ -76,6 +80,8 @@ public class Niveau2 extends Activity{
         imageTop3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                removeBorders();
+                imageTop3.setImageResource(R.drawable.customborder);
                 selectedItem = valueImageTop3;
             }
         });
@@ -83,6 +89,8 @@ public class Niveau2 extends Activity{
         imageTop4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                removeBorders();
+                imageTop4.setImageResource(R.drawable.customborder);
                 selectedItem = valueImageTop4;
             }
         });
@@ -93,6 +101,7 @@ public class Niveau2 extends Activity{
                 if(selectedItem == successItem1){
                     pts++;
                     imageBot1.setVisibility(View.INVISIBLE);
+                    removeBorders();
                     if(pts == ptsToWin) {
                         playSongGameSuccess();
                         newGame();
@@ -107,6 +116,7 @@ public class Niveau2 extends Activity{
                 if(selectedItem == successItem2){
                     pts++;
                     imageBot2.setVisibility(View.INVISIBLE);
+                    removeBorders();
                     if(pts == ptsToWin) {
                         playSongGameSuccess();
                         newGame();
@@ -122,6 +132,7 @@ public class Niveau2 extends Activity{
     }
 
     private void newGame(){
+        removeBorders();
         imageBot1.setVisibility(View.VISIBLE);
         imageBot2.setVisibility(View.VISIBLE);
         pts = 0;
@@ -400,5 +411,12 @@ public class Niveau2 extends Activity{
         startActivity(intent);
         overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
         finish();
+    }
+
+    public void removeBorders(){
+        imageTop1.setImageResource(R.drawable.noborder);
+        imageTop2.setImageResource(R.drawable.noborder);
+        imageTop3.setImageResource(R.drawable.noborder);
+        imageTop4.setImageResource(R.drawable.noborder);
     }
 }
