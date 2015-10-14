@@ -74,6 +74,9 @@ public class Niveau1 extends Activity {
                 if(selectedItem == successItem){
                     playSongGameSuccess();
                     newGame();
+                } else {
+                    removeBorders();
+                    selectedItem = -1;
                 }
             }
         });

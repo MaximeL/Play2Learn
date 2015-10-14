@@ -112,6 +112,9 @@ public class Niveau3 extends Activity{
                         playSongGameSuccess();
                         newGame();
                     }
+                } else {
+                    removeBorders();
+                    selectedItem = -1;
                 }
             }
         });
@@ -127,6 +130,9 @@ public class Niveau3 extends Activity{
                         playSongGameSuccess();
                         newGame();
                     }
+                } else {
+                    removeBorders();
+                    selectedItem = -1;
                 }
             }
         });
@@ -142,6 +148,9 @@ public class Niveau3 extends Activity{
                         playSongGameSuccess();
                         newGame();
                     }
+                } else {
+                    removeBorders();
+                    selectedItem = -1;
                 }
             }
         });
