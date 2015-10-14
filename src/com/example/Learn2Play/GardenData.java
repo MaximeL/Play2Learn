@@ -3,7 +3,7 @@ package com.example.Learn2Play;
 /**
  * Created by marcd on 11/10/2015.
  */
-public class Data {
+public class GardenData {
     public static int nbElt = 10;
     public static int fleurId = 0;
     public static int papillonId = 1;

@@ -39,7 +39,9 @@ public class ImageElement {
     public void setImageResource(int noborder) {
         imageButton.setImageResource(noborder);
     }
-
+    public void setVisibility(int visibility) {
+        imageButton.setVisibility(visibility);
+    }
 
 
 }

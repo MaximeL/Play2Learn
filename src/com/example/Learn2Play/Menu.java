@@ -37,7 +37,13 @@ public class Menu extends Activity {
             @Override
             public void onClick(View v) {
                 playSongTouch();
-                Intent intent = new Intent(Menu.this, Niveau1.class);
+                Intent intent = new Intent(Menu.this, GameEngine.class);
+                Bundle b = new Bundle();
+                b.putInt("level", 1);
+                b.putInt("nbTop", 3);
+                b.putInt("nbBot", 1);
+                b.putStringArray("data", GardenData.imageNames);
+                intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -49,7 +55,13 @@ public class Menu extends Activity {
             @Override
             public void onClick(View v) {
                 playSongTouch();
-                Intent intent = new Intent(Menu.this, Niveau2.class);
+                Intent intent = new Intent(Menu.this, GameEngine.class);
+                Bundle b = new Bundle();
+                b.putInt("level", 2);
+                b.putInt("nbTop", 4);
+                b.putInt("nbBot", 2);
+                b.putStringArray("data", GardenData.imageNames);
+                intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -61,13 +73,21 @@ public class Menu extends Activity {
             @Override
             public void onClick(View v) {
                 playSongTouch();
-                Intent intent = new Intent(Menu.this, Niveau3.class);
+                Intent intent = new Intent(Menu.this, GameEngine.class);
+                Bundle b = new Bundle();
+                b.putInt("level", 3);
+                b.putInt("nbTop", 5);
+                b.putInt("nbBot", 3);
+                b.putStringArray("data", GardenData.imageNames);
+                intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
                 instruMenu.stop();
             }
         });
+
+
     }
 
     private void playSongTouch(){

@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by Marc on 30/09/2015.
+ * Created by Maxime on 10/14/2015.
  */
-public class Niveau1 extends Activity {
+public class GameEngine extends Activity {
 
     private String[] imageNames;
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
 
-    private int selectedItem = -1;
-    private int propositions = 3;
-    private int pts = 0;
-    private int ptsToWin = 1;
+    private int nbTop;
+    private int nbBot;
 
+    private int score = 0;
+    private int selectedItem = -1;
     int resID;
 
     private MediaPlayer gameSuccess;
@@ -32,20 +32,26 @@ public class Niveau1 extends Activity {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_niveau_1);
+
+        Bundle b = getIntent().getExtras();
+        nbTop = b.getInt("nbTop");
+        nbBot = b.getInt("nbBot");
+        imageNames = b.getStringArray("data");
+        resID = getResources().getIdentifier("activity_niveau_" + b.getInt("level"), "layout", getPackageName());
+        setContentView(resID);
 
         imageNames = GardenData.imageNames;
 
-        imageTops = new ImageElement[propositions];
-        for(int i=0; i < propositions; i++) {
+        imageTops = new ImageElement[nbTop];
+        for(int i=0; i < nbTop; i++) {
             resID = getResources().getIdentifier("image_top_"+(i+1), "id", getPackageName());
             imageTops[i] = new ImageElement((ImageButton) findViewById(resID));
         }
 
         gameSuccess = MediaPlayer.create(this, R.raw.fx_applause);
 
-        imageBots = new ImageElement[ptsToWin];
-        for(int i=0; i < ptsToWin; i++) {
+        imageBots = new ImageElement[nbBot];
+        for(int i=0; i < nbBot; i++) {
             resID = getResources().getIdentifier("image_bot_"+(i+1), "id", getPackageName());
             imageBots[i] = new ImageElement((ImageButton) findViewById(resID));
         }
@@ -68,10 +74,10 @@ public class Niveau1 extends Activity {
                 @Override
                 public void onClick(View v) {
                     if(selectedItem == imageElement.getValueImage()){
-                        pts++;
+                        score++;
                         imageElement.setVisibility(View.INVISIBLE);
                         removeBorders();
-                        if(pts == ptsToWin) {
+                        if(score == nbBot) {
                             playSongGameSuccess();
                             newGame();
                         }
@@ -90,7 +96,7 @@ public class Niveau1 extends Activity {
     }
 
     private void newGame(){
-        pts = 0;
+        score = 0;
 
         removeBorders();
         ArrayList<Integer> listId = new ArrayList<Integer>();
@@ -101,7 +107,7 @@ public class Niveau1 extends Activity {
 
         Collections.shuffle(listId);
 
-        for(int i = 0; i < propositions; i++) {
+        for(int i = 0; i < nbTop; i++) {
             topListId.add(listId.get(i));
             resID = getResources().getIdentifier(imageNames[listId.get(i)] , "drawable", getPackageName());
             imageTops[i].setBackgroundResource(resID);
@@ -110,7 +116,7 @@ public class Niveau1 extends Activity {
 
         Collections.shuffle(topListId);
 
-        for(int i = 0; i < ptsToWin; i++) {
+        for(int i = 0; i < nbBot; i++) {
             imageBots[i].setValueImage(topListId.get(i));
             resID = getResources().getIdentifier(imageNames[imageBots[i].getValueImage()], "drawable", getPackageName());
             imageBots[i].setBackgroundResource(resID);
@@ -120,7 +126,7 @@ public class Niveau1 extends Activity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Niveau1.this, Menu.class);
+        Intent intent = new Intent(GameEngine.this, Menu.class);
         startActivity(intent);
         overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
         finish();

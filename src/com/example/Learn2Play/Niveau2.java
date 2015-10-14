@@ -10,14 +10,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.media.MediaPlayer;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 
 /**
@@ -144,7 +136,7 @@ public class Niveau2 extends Activity{
         pts = 0;
         ArrayList<Integer> listId = new ArrayList<Integer>();
         ArrayList<Integer> topListId = new ArrayList<Integer>();
-        for(int i = 0; i < Data.nbElt; i++){
+        for(int i = 0; i < GardenData.nbElt; i++){
             listId.add(i);
         }
 
@@ -156,160 +148,160 @@ public class Niveau2 extends Activity{
                 case 0: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.fleur_256_256);
-                        valueImageTop1 = Data.fleurId;
+                        valueImageTop1 = GardenData.fleurId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.fleur_256_256);
-                        valueImageTop2 = Data.fleurId;
+                        valueImageTop2 = GardenData.fleurId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.fleur_256_256);
-                        valueImageTop3 = Data.fleurId;
+                        valueImageTop3 = GardenData.fleurId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.fleur_256_256);
-                        valueImageTop4 = Data.fleurId;
+                        valueImageTop4 = GardenData.fleurId;
                     }
                     break;
                 }
                 case 1: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.papillon_256_256);
-                        valueImageTop1 = Data.papillonId;
+                        valueImageTop1 = GardenData.papillonId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.papillon_256_256);
-                        valueImageTop2 = Data.papillonId;
+                        valueImageTop2 = GardenData.papillonId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.papillon_256_256);
-                        valueImageTop3 = Data.papillonId;
+                        valueImageTop3 = GardenData.papillonId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.papillon_256_256);
-                        valueImageTop4 = Data.papillonId;
+                        valueImageTop4 = GardenData.papillonId;
                     }
                     break;
                 }
                 case 2: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.feuille_256_256);
-                        valueImageTop1 = Data.feuilleId;
+                        valueImageTop1 = GardenData.feuilleId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.feuille_256_256);
-                        valueImageTop2 = Data.feuilleId;
+                        valueImageTop2 = GardenData.feuilleId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.feuille_256_256);
-                        valueImageTop3 = Data.feuilleId;
+                        valueImageTop3 = GardenData.feuilleId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.feuille_256_256);
-                        valueImageTop4 = Data.feuilleId;
+                        valueImageTop4 = GardenData.feuilleId;
                     }
                     break;
                 }
                 case 3: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.abeille_256_256);
-                        valueImageTop1 = Data.abeilleId;
+                        valueImageTop1 = GardenData.abeilleId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.abeille_256_256);
-                        valueImageTop2 = Data.abeilleId;
+                        valueImageTop2 = GardenData.abeilleId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.abeille_256_256);
-                        valueImageTop3 = Data.abeilleId;
+                        valueImageTop3 = GardenData.abeilleId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.abeille_256_256);
-                        valueImageTop4 = Data.abeilleId;
+                        valueImageTop4 = GardenData.abeilleId;
                     }
                     break;
                 }
                 case 4: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.coccinelle_256_256);
-                        valueImageTop1 = Data.coccinelleId;
+                        valueImageTop1 = GardenData.coccinelleId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.coccinelle_256_256);
-                        valueImageTop2 = Data.coccinelleId;
+                        valueImageTop2 = GardenData.coccinelleId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.coccinelle_256_256);
-                        valueImageTop3 = Data.coccinelleId;
+                        valueImageTop3 = GardenData.coccinelleId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.coccinelle_256_256);
-                        valueImageTop4 = Data.coccinelleId;
+                        valueImageTop4 = GardenData.coccinelleId;
                     }
                     break;
                 }
                 case 5: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.ver_256_256);
-                        valueImageTop1 = Data.verId;
+                        valueImageTop1 = GardenData.verId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.ver_256_256);
-                        valueImageTop2 = Data.verId;
+                        valueImageTop2 = GardenData.verId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.ver_256_256);
-                        valueImageTop3 = Data.verId;
+                        valueImageTop3 = GardenData.verId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.ver_256_256);
-                        valueImageTop4 = Data.verId;
+                        valueImageTop4 = GardenData.verId;
                     }
                     break;
                 }
                 case 6: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.araigne_256_256);
-                        valueImageTop1 = Data.araigneId;
+                        valueImageTop1 = GardenData.araigneId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.araigne_256_256);
-                        valueImageTop2 = Data.araigneId;
+                        valueImageTop2 = GardenData.araigneId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.araigne_256_256);
-                        valueImageTop3 = Data.araigneId;
+                        valueImageTop3 = GardenData.araigneId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.araigne_256_256);
-                        valueImageTop4 = Data.araigneId;
+                        valueImageTop4 = GardenData.araigneId;
                     }
                     break;
                 }
                 case 7: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.sauterelle_256_256);
-                        valueImageTop1 = Data.sauterelleId;
+                        valueImageTop1 = GardenData.sauterelleId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.sauterelle_256_256);
-                        valueImageTop2 = Data.sauterelleId;
+                        valueImageTop2 = GardenData.sauterelleId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.sauterelle_256_256);
-                        valueImageTop3 = Data.sauterelleId;
+                        valueImageTop3 = GardenData.sauterelleId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.sauterelle_256_256);
-                        valueImageTop4 = Data.sauterelleId;
+                        valueImageTop4 = GardenData.sauterelleId;
                     }
                     break;
                 }
                 case 8: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.escargot_256_256);
-                        valueImageTop1 = Data.escargotId;
+                        valueImageTop1 = GardenData.escargotId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.escargot_256_256);
-                        valueImageTop2 = Data.escargotId;
+                        valueImageTop2 = GardenData.escargotId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.escargot_256_256);
-                        valueImageTop3 = Data.escargotId;
+                        valueImageTop3 = GardenData.escargotId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.escargot_256_256);
-                        valueImageTop4 = Data.escargotId;
+                        valueImageTop4 = GardenData.escargotId;
                     }
                     break;
                 }
                 case 9: {
                     if(i == 0) {
                         imageTop1.setBackgroundResource(R.drawable.fourmis_256_256);
-                        valueImageTop1 = Data.fourmisId;
+                        valueImageTop1 = GardenData.fourmisId;
                     } else if(i == 1){
                         imageTop2.setBackgroundResource(R.drawable.fourmis_256_256);
-                        valueImageTop2 = Data.fourmisId;
+                        valueImageTop2 = GardenData.fourmisId;
                     } else if(i == 2){
                         imageTop3.setBackgroundResource(R.drawable.fourmis_256_256);
-                        valueImageTop3 = Data.fourmisId;
+                        valueImageTop3 = GardenData.fourmisId;
                     } else if(i == 3){
                         imageTop4.setBackgroundResource(R.drawable.fourmis_256_256);
-                        valueImageTop4 = Data.fourmisId;
+                        valueImageTop4 = GardenData.fourmisId;
                     }
                     break;
                 }
