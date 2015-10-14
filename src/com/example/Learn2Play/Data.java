@@ -16,4 +16,17 @@ public class Data {
     public static int escargotId = 8;
     public static int fourmisId = 9;
 
+    public static String[] imageNames = new String[] {
+        "fleur_256_256",
+        "papillon_256_256",
+        "feuille_256_256",
+        "abeille_256_256",
+        "coccinelle_256_256",
+        "ver_256_256",
+        "araigne_256_256",
+        "sauterelle_256_256",
+        "escargot_256_256",
+        "fourmis_256_256"
+    };
+
 }
