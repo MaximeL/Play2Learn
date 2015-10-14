@@ -32,39 +32,33 @@ public class Niveau1 extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
-        imageNames = Data.imageNames;
-
-        imageTops = new ImageElement[propositions];
-        ImageButton imgButton = (ImageButton) findViewById(R.id.image_top_1);
-        Log.d("Debug", "juste before creation : imgButton : " + imgButton);
-        imageTops[0] = new ImageElement((ImageButton) findViewById(R.id.image_top_1));
-        imageTops[1] = new ImageElement((ImageButton) findViewById(R.id.image_top_2));
-        imageTops[2] = new ImageElement((ImageButton) findViewById(R.id.image_top_3));
-
-        for(ImageElement imageElement : imageTops)
-            Log.d("Debug", "juste after creation : imageButton : " + imageElement.imageButton);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_niveau_1);
 
-        imageBot1 = new ImageElement((ImageButton) findViewById(R.id.image_bot_1));
+        imageNames = Data.imageNames;
+
+        imageTops = new ImageElement[propositions];
+        for(int i=0; i < propositions; i++) {
+            resID = getResources().getIdentifier("image_top_"+(i+1), "id", getPackageName());
+            imageTops[i] = new ImageElement((ImageButton) findViewById(resID));
+        }
 
         gameSuccess = MediaPlayer.create(this, R.raw.fx_applause);
 
         newGame();
 
         for(ImageElement imageElement : imageTops) {
-            imageElement.imageButton.setOnClickListener(new View.OnClickListener() {
+            imageElement.getImageButton().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     removeBorders();
                     selectedItem = imageElement.getValueImage();
-                    imageElement.imageButton.setImageResource(R.drawable.customborder);
+                    imageElement.setImageResource(R.drawable.customborder);
                 }
             });
         }
 
-        imageBot1.imageButton.setOnClickListener(new View.OnClickListener() {
+        imageBot1.getImageButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (selectedItem == imageBot1.getValueImage()) {
@@ -96,21 +90,15 @@ public class Niveau1 extends Activity {
         for(int i = 0; i < propositions; i++) {
             topListId.add(listId.get(i));
             resID = getResources().getIdentifier(imageNames[listId.get(i)] , "drawable", getPackageName());
-            Log.d("Debug", "Image : " + imageNames[listId.get(i)]);
-            Log.d("Debug", "i : " + i);
-            Log.d("Debug", "imageTops[i] : " + imageTops[i]);
-            Log.d("Debug", "imageButton : " + imageTops[i].imageButton);
-            Log.d("Debug", "imageButton : " + imageTops[i].getImageButton());
-            Log.d("Debug", "resID : " + resID);
-            imageTops[i].imageButton.setBackgroundResource(resID);
+            imageTops[i].setBackgroundResource(resID);
             imageTops[i].setValueImage(listId.get(i));
         }
 
         Collections.shuffle(topListId);
-        imageBot1.setValueImage(topListId.get(0));
 
+        imageBot1.setValueImage(topListId.get(0));
         resID = getResources().getIdentifier(imageNames[imageBot1.getValueImage()] , "drawable", getPackageName());
-        imageBot1.imageButton.setBackgroundResource(resID);
+        imageBot1.setBackgroundResource(resID);
     }
 
     @Override
@@ -123,7 +111,7 @@ public class Niveau1 extends Activity {
 
     public void removeBorders(){
         for(ImageElement imageElement : imageTops) {
-            imageElement.imageButton.setImageResource(R.drawable.noborder);
+            imageElement.setImageResource(R.drawable.noborder);
         }
     }
 }

@@ -9,7 +9,7 @@ import android.widget.ImageButton;
  */
 public class ImageElement {
 
-    public ImageButton imageButton;
+    private ImageButton imageButton;
     private int valueImage;
 
     public ImageElement(ImageButton imageButton) {
@@ -21,6 +21,10 @@ public class ImageElement {
         return imageButton;
     }
 
+    public void setImageButton(ImageButton imageButton) {
+        this.imageButton = imageButton;
+    }
+
     public int getValueImage() {
         return valueImage;
     }
@@ -28,5 +32,14 @@ public class ImageElement {
     public void setValueImage(int valueImage) {
         this.valueImage = valueImage;
     }
+
+    public void setBackgroundResource(int resID) {
+        imageButton.setBackgroundResource(resID);
+    }
+    public void setImageResource(int noborder) {
+        imageButton.setImageResource(noborder);
+    }
+
+
 
 }
