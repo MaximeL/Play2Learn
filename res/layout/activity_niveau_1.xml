@@ -80,7 +80,6 @@
                                         android:id="@+id/image_non"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:alpha="0"
                                         android:background="@drawable/leaf_256_256"
                                         android:layout_gravity="center"/>
                                 </LinearLayout>
@@ -93,7 +92,6 @@
                                         android:id="@+id/image_oui"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:alpha="0"
                                         android:background="@drawable/leaf_256_256"
                                         android:layout_gravity="center"/>
 

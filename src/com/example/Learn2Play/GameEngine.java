@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +21,11 @@ public class GameEngine extends Activity {
     private String[] imageNames;
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
+
+    private ImageView imageNon;
+    private ImageView imageOui;
+
+    private Animation animGetVisible = null;
 
     private int nbTop;
     private int nbBot;
@@ -39,6 +47,14 @@ public class GameEngine extends Activity {
         imageNames = b.getStringArray("data");
         resID = getResources().getIdentifier("activity_niveau_" + b.getInt("level"), "layout", getPackageName());
         setContentView(resID);
+
+        imageNon = (ImageView) findViewById(R.id.image_non);
+        imageOui = (ImageView) findViewById(R.id.image_oui);
+
+        imageNon.setVisibility(View.INVISIBLE);
+        imageOui.setVisibility(View.INVISIBLE);
+
+        animGetVisible = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible);
 
         imageNames = GardenData.imageNames;
 
@@ -77,13 +93,39 @@ public class GameEngine extends Activity {
                         score++;
                         imageElement.setVisibility(View.INVISIBLE);
                         removeBorders();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        imageOui.setVisibility(View.VISIBLE);
+                                        imageOui.startAnimation(animGetVisible);
+                                        imageOui.setVisibility(View.INVISIBLE);
+                                    }
+                                });
+                            }
+                        }).start();
                         if(score == nbBot) {
                             playSongGameSuccess();
                             newGame();
                         }
-                    } else {
+                    } else if(selectedItem != -1){
                         removeBorders();
                         selectedItem = -1;
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        imageNon.setVisibility(View.VISIBLE);
+                                        imageNon.startAnimation(animGetVisible);
+                                        imageNon.setVisibility(View.INVISIBLE);
+                                    }
+                                });
+                            }
+                        }).start();
                     }
                 }
             });
