@@ -55,6 +55,25 @@ public class GameEngine extends Activity {
         imageOui.setVisibility(View.INVISIBLE);
 
         animGetVisible = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible);
+        animGetVisible.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if(score == nbBot) {
+                    playSongGameSuccess();
+                    newGame();
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
 
         imageNames = GardenData.imageNames;
 
@@ -106,10 +125,6 @@ public class GameEngine extends Activity {
                                 });
                             }
                         }).start();
-                        if(score == nbBot) {
-                            playSongGameSuccess();
-                            newGame();
-                        }
                     } else if(selectedItem != -1){
                         removeBorders();
                         selectedItem = -1;
