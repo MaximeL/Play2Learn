@@ -1,5 +1,7 @@
 package com.example.Learn2Play;
 
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -11,14 +13,29 @@ public class ImageElement {
 
     private ImageButton imageButton;
     private int valueImage;
+    private MediaPlayer songAnimal;
+    private int audioID;
 
     public ImageElement(ImageButton imageButton) {
         this.imageButton = imageButton;
         this.valueImage = -1;
     }
 
+    public void playSong(Context context){
+        songAnimal = MediaPlayer.create(context, audioID);
+        songAnimal.start();
+    }
+
     public ImageButton getImageButton() {
         return imageButton;
+    }
+
+    public int getAudioID() {
+        return audioID;
+    }
+
+    public void setAudioID(int audioID) {
+        this.audioID = audioID;
     }
 
     public void setImageButton(ImageButton imageButton) {

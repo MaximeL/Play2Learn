@@ -43,6 +43,7 @@ public class Menu extends Activity {
                 b.putInt("nbTop", 3);
                 b.putInt("nbBot", 1);
                 b.putStringArray("data", GardenData.imageNames);
+                b.putStringArray("song", GardenData.imageSong);
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -61,6 +62,7 @@ public class Menu extends Activity {
                 b.putInt("nbTop", 4);
                 b.putInt("nbBot", 2);
                 b.putStringArray("data", GardenData.imageNames);
+                b.putStringArray("song", GardenData.imageSong);
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -79,6 +81,7 @@ public class Menu extends Activity {
                 b.putInt("nbTop", 5);
                 b.putInt("nbBot", 3);
                 b.putStringArray("data", GardenData.imageNames);
+                b.putStringArray("song", GardenData.imageSong);
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);

@@ -29,4 +29,17 @@ public class GardenData {
         "fourmis_256_256"
     };
 
+    public static String[] imageSong = new String[] {
+            "fleur",
+            "papillon",
+            "feuille",
+            "abeille",
+            "coccinelle",
+            "ver",
+            "araignee",
+            "sauterelle",
+            "escargot",
+            "fourmis"
+    };
+
 }

@@ -19,6 +19,7 @@ import java.util.Collections;
 public class GameEngine extends Activity {
 
     private String[] imageNames;
+    private String[] imageSong;
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
 
@@ -34,6 +35,7 @@ public class GameEngine extends Activity {
     private int score = 0;
     private int selectedItem = -1;
     int resID;
+    int audioID;
 
     private MediaPlayer gameSuccess;
 
@@ -46,6 +48,7 @@ public class GameEngine extends Activity {
         nbTop = b.getInt("nbTop");
         nbBot = b.getInt("nbBot");
         imageNames = b.getStringArray("data");
+        imageSong = b.getStringArray("song");
         resID = getResources().getIdentifier("activity_niveau_" + b.getInt("level"), "layout", getPackageName());
         setContentView(resID);
 
@@ -93,6 +96,8 @@ public class GameEngine extends Activity {
         for(int i=0; i < nbBot; i++) {
             resID = getResources().getIdentifier("image_bot_"+(i+1), "id", getPackageName());
             imageBots[i] = new ImageElement((ImageButton) findViewById(resID));
+            audioID = getResources().getIdentifier("raw/" + "coccinelle", "raw", getPackageName());
+            imageBots[i].setAudioID(audioID);
         }
 
         newGame();
@@ -104,6 +109,7 @@ public class GameEngine extends Activity {
                     removeBorders();
                     selectedItem = imageElement.getValueImage();
                     imageElement.setImageResource(R.drawable.customborder);
+                    imageElement.playSong(GameEngine.this);
                 }
             });
         }
@@ -174,6 +180,8 @@ public class GameEngine extends Activity {
             resID = getResources().getIdentifier(imageNames[listId.get(i)] , "drawable", getPackageName());
             imageTops[i].setBackgroundResource(resID);
             imageTops[i].setValueImage(listId.get(i));
+            audioID = getResources().getIdentifier("raw/" + imageSong[listId.get(i)], "raw", getPackageName());
+            imageTops[i].setAudioID(audioID);
         }
 
         Collections.shuffle(topListId);
