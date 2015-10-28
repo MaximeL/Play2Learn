@@ -26,9 +26,10 @@ public class GameEngine extends Activity {
     private ImageView imageNon;
     private ImageView imageOui;
 
+    private Animation animGetVisibleYes = null;
+    private Animation animGetVisibleNo = null;
+    
     private TextView textView;
-
-    private Animation animGetVisible = null;
 
     private int nbTop;
     private int nbBot;
@@ -60,7 +61,29 @@ public class GameEngine extends Activity {
         resID = getResources().getIdentifier("textView", "id", getPackageName());
         textView = (TextView) findViewById(resID);
 
-        animGetVisible = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible);
+        animGetVisibleYes = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_yes);
+        animGetVisibleNo = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_no);
+
+        animGetVisibleYes.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                if(score == nbBot) {
+                    playSongGameSuccess();
+                }
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                if(score == nbBot) {
+                    newGame();
+                }
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
 
         imageTops = new ImageElement[nbTop];
         for(int i=0; i < nbTop; i++) {
@@ -105,16 +128,12 @@ public class GameEngine extends Activity {
                                     @Override
                                     public void run() {
                                         imageOui.setVisibility(View.VISIBLE);
-                                        imageOui.startAnimation(animGetVisible);
+                                        imageOui.startAnimation(animGetVisibleYes);
                                         imageOui.setVisibility(View.INVISIBLE);
                                     }
                                 });
                             }
                         }).start();
-                        if(score == nbBot) {
-                            playSongGameSuccess();
-                            newGame();
-                        }
                     } else if(selectedItem != -1){
                         removeBorders();
                         selectedItem = -1;
@@ -125,7 +144,7 @@ public class GameEngine extends Activity {
                                     @Override
                                     public void run() {
                                         imageNon.setVisibility(View.VISIBLE);
-                                        imageNon.startAnimation(animGetVisible);
+                                        imageNon.startAnimation(animGetVisibleNo);
                                         imageNon.setVisibility(View.INVISIBLE);
                                     }
                                 });
@@ -143,6 +162,7 @@ public class GameEngine extends Activity {
     }
 
     private void newGame(){
+        selectedItem = -1;
         score = 0;
 
         textView.setText("");
