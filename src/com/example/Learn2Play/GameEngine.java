@@ -25,7 +25,8 @@ public class GameEngine extends Activity {
     private ImageView imageNon;
     private ImageView imageOui;
 
-    private Animation animGetVisible = null;
+    private Animation animGetVisibleYes = null;
+    private Animation animGetVisibleNo = null;
 
     private int nbTop;
     private int nbBot;
@@ -54,8 +55,10 @@ public class GameEngine extends Activity {
         imageNon.setVisibility(View.INVISIBLE);
         imageOui.setVisibility(View.INVISIBLE);
 
-        animGetVisible = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible);
-        animGetVisible.setAnimationListener(new Animation.AnimationListener() {
+        animGetVisibleYes = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_yes);
+        animGetVisibleNo = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_no);
+
+        animGetVisibleYes.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -119,7 +122,7 @@ public class GameEngine extends Activity {
                                     @Override
                                     public void run() {
                                         imageOui.setVisibility(View.VISIBLE);
-                                        imageOui.startAnimation(animGetVisible);
+                                        imageOui.startAnimation(animGetVisibleYes);
                                         imageOui.setVisibility(View.INVISIBLE);
                                     }
                                 });
@@ -135,7 +138,7 @@ public class GameEngine extends Activity {
                                     @Override
                                     public void run() {
                                         imageNon.setVisibility(View.VISIBLE);
-                                        imageNon.startAnimation(animGetVisible);
+                                        imageNon.startAnimation(animGetVisibleNo);
                                         imageNon.setVisibility(View.INVISIBLE);
                                     }
                                 });
@@ -153,6 +156,7 @@ public class GameEngine extends Activity {
     }
 
     private void newGame(){
+        selectedItem = -1;
         score = 0;
 
         removeBorders();
