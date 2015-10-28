@@ -19,7 +19,7 @@ import java.util.Collections;
  */
 public class GameEngine extends Activity {
 
-    private String[] imageNames;
+    private String[] names;
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
 
@@ -49,7 +49,7 @@ public class GameEngine extends Activity {
         Bundle b = getIntent().getExtras();
         nbTop = b.getInt("nbTop");
         nbBot = b.getInt("nbBot");
-        imageNames = b.getStringArray("data");
+        names = b.getStringArray("data");
         resID = getResources().getIdentifier("activity_niveau_" + b.getInt("level"), "layout", getPackageName());
         setContentView(resID);
 
@@ -174,7 +174,7 @@ public class GameEngine extends Activity {
         removeBorders();
         ArrayList<Integer> listId = new ArrayList<Integer>();
         ArrayList<Integer> topListId = new ArrayList<Integer>();
-        for(int i = 0; i < imageNames.length; i++){
+        for(int i = 0; i < names.length; i++){
             listId.add(i);
         }
 
@@ -182,22 +182,22 @@ public class GameEngine extends Activity {
 
         for(int i = 0; i < nbTop; i++) {
             topListId.add(listId.get(i));
-            resID = getResources().getIdentifier(imageNames[listId.get(i)]+"_256_256" , "drawable", getPackageName());
+            resID = getResources().getIdentifier(names[listId.get(i)]+"_256_256" , "drawable", getPackageName());
             imageTops[i].setBackgroundResource(resID);
             imageTops[i].setValueImage(listId.get(i));
-            audioID = getResources().getIdentifier("raw/" + imageNames[listId.get(i)], "raw", getPackageName());
+            audioID = getResources().getIdentifier("raw/" + names[listId.get(i)], "raw", getPackageName());
             imageTops[i].setAudioID(audioID);
-            imageTops[i].setName(imageNames[listId.get(i)]);
+            imageTops[i].setName(names[listId.get(i)]);
         }
 
         Collections.shuffle(topListId);
 
         for(int i = 0; i < nbBot; i++) {
             imageBots[i].setValueImage(topListId.get(i));
-            resID = getResources().getIdentifier(imageNames[imageBots[i].getValueImage()]+"_256_256", "drawable", getPackageName());
+            resID = getResources().getIdentifier(names[imageBots[i].getValueImage()]+"_256_256", "drawable", getPackageName());
             imageBots[i].setBackgroundResource(resID);
             imageBots[i].setVisibility(View.VISIBLE);
-            imageBots[i].setName(imageNames[imageBots[i].getValueImage()]);
+            imageBots[i].setName(names[imageBots[i].getValueImage()]);
         }
     }
 
