@@ -61,13 +61,14 @@ public class GameEngine extends Activity {
         animGetVisibleYes.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
+                if(score == nbBot) {
+                    playSongGameSuccess();
+                }
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
                 if(score == nbBot) {
-                    playSongGameSuccess();
                     newGame();
                 }
             }
