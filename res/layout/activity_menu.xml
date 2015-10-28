@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/niveau"
+                android:src="@drawable/niveau_facile"
                 android:background="#00ffffff"/>
 
 
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/niveau"
+                android:src="@drawable/niveau_moyen"
                 android:background="#00ffffff"/>
 
     </LinearLayout>
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/niveau"
+                android:src="@drawable/niveau_difficile"
                 android:background="#00ffffff"/>
 
     </LinearLayout>
