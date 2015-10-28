@@ -108,7 +108,7 @@ public class GameEngine extends Activity {
                     removeBorders();
                     selectedItem = imageElement.getValueImage();
                     imageElement.setImageResource(R.drawable.customborder);
-                    textView.setText(imageElement.getName());
+                    textView.setText(imageElement.getName().toUpperCase());
                 }
             });
         }
