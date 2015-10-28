@@ -11,6 +11,7 @@ public class ImageElement {
 
     private ImageButton imageButton;
     private int valueImage;
+    private String name;
 
     public ImageElement(ImageButton imageButton) {
         this.imageButton = imageButton;
@@ -43,5 +44,11 @@ public class ImageElement {
         imageButton.setVisibility(visibility);
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getName() {
+        return name;
+    }
 }

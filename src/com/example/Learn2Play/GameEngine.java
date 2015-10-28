@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,6 +25,8 @@ public class GameEngine extends Activity {
 
     private ImageView imageNon;
     private ImageView imageOui;
+
+    private TextView textView;
 
     private Animation animGetVisible = null;
 
@@ -54,9 +57,10 @@ public class GameEngine extends Activity {
         imageNon.setVisibility(View.INVISIBLE);
         imageOui.setVisibility(View.INVISIBLE);
 
-        animGetVisible = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible);
+        resID = getResources().getIdentifier("textView", "id", getPackageName());
+        textView = (TextView) findViewById(resID);
 
-        imageNames = GardenData.imageNames;
+        animGetVisible = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible);
 
         imageTops = new ImageElement[nbTop];
         for(int i=0; i < nbTop; i++) {
@@ -81,6 +85,7 @@ public class GameEngine extends Activity {
                     removeBorders();
                     selectedItem = imageElement.getValueImage();
                     imageElement.setImageResource(R.drawable.customborder);
+                    textView.setText(imageElement.getName());
                 }
             });
         }
@@ -140,10 +145,12 @@ public class GameEngine extends Activity {
     private void newGame(){
         score = 0;
 
+        textView.setText("");
+
         removeBorders();
         ArrayList<Integer> listId = new ArrayList<Integer>();
         ArrayList<Integer> topListId = new ArrayList<Integer>();
-        for(int i = 0; i < GardenData.nbElt; i++){
+        for(int i = 0; i < imageNames.length; i++){
             listId.add(i);
         }
 
@@ -151,18 +158,20 @@ public class GameEngine extends Activity {
 
         for(int i = 0; i < nbTop; i++) {
             topListId.add(listId.get(i));
-            resID = getResources().getIdentifier(imageNames[listId.get(i)] , "drawable", getPackageName());
+            resID = getResources().getIdentifier(imageNames[listId.get(i)]+"_256_256" , "drawable", getPackageName());
             imageTops[i].setBackgroundResource(resID);
             imageTops[i].setValueImage(listId.get(i));
+            imageTops[i].setName(imageNames[listId.get(i)]);
         }
 
         Collections.shuffle(topListId);
 
         for(int i = 0; i < nbBot; i++) {
             imageBots[i].setValueImage(topListId.get(i));
-            resID = getResources().getIdentifier(imageNames[imageBots[i].getValueImage()], "drawable", getPackageName());
+            resID = getResources().getIdentifier(imageNames[imageBots[i].getValueImage()]+"_256_256", "drawable", getPackageName());
             imageBots[i].setBackgroundResource(resID);
             imageBots[i].setVisibility(View.VISIBLE);
+            imageBots[i].setName(imageNames[imageBots[i].getValueImage()]);
         }
     }
 
@@ -178,5 +187,6 @@ public class GameEngine extends Activity {
         for(ImageElement imageElement : imageTops) {
             imageElement.setImageResource(R.drawable.noborder);
         }
+        textView.setText("");
     }
 }
