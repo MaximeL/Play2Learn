@@ -15,6 +15,7 @@ public class ImageElement {
     private int valueImage;
     private MediaPlayer songAnimal;
     private int audioID;
+    private String name;
 
     public ImageElement(ImageButton imageButton) {
         this.imageButton = imageButton;
@@ -60,5 +61,11 @@ public class ImageElement {
         imageButton.setVisibility(visibility);
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getName() {
+        return name;
+    }
 }

@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +20,6 @@ import java.util.Collections;
 public class GameEngine extends Activity {
 
     private String[] imageNames;
-    private String[] imageSong;
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
 
@@ -28,6 +28,8 @@ public class GameEngine extends Activity {
 
     private Animation animGetVisibleYes = null;
     private Animation animGetVisibleNo = null;
+    
+    private TextView textView;
 
     private int nbTop;
     private int nbBot;
@@ -48,7 +50,6 @@ public class GameEngine extends Activity {
         nbTop = b.getInt("nbTop");
         nbBot = b.getInt("nbBot");
         imageNames = b.getStringArray("data");
-        imageSong = b.getStringArray("song");
         resID = getResources().getIdentifier("activity_niveau_" + b.getInt("level"), "layout", getPackageName());
         setContentView(resID);
 
@@ -57,6 +58,9 @@ public class GameEngine extends Activity {
 
         imageNon.setVisibility(View.INVISIBLE);
         imageOui.setVisibility(View.INVISIBLE);
+
+        resID = getResources().getIdentifier("textView", "id", getPackageName());
+        textView = (TextView) findViewById(resID);
 
         animGetVisibleYes = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_yes);
         animGetVisibleNo = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_no);
@@ -81,8 +85,6 @@ public class GameEngine extends Activity {
 
             }
         });
-
-        imageNames = GardenData.imageNames;
 
         imageTops = new ImageElement[nbTop];
         for(int i=0; i < nbTop; i++) {
@@ -110,6 +112,7 @@ public class GameEngine extends Activity {
                     selectedItem = imageElement.getValueImage();
                     imageElement.setImageResource(R.drawable.customborder);
                     imageElement.playSong(GameEngine.this);
+                    textView.setText(imageElement.getName().toUpperCase());
                 }
             });
         }
@@ -166,10 +169,12 @@ public class GameEngine extends Activity {
         selectedItem = -1;
         score = 0;
 
+        textView.setText("");
+
         removeBorders();
         ArrayList<Integer> listId = new ArrayList<Integer>();
         ArrayList<Integer> topListId = new ArrayList<Integer>();
-        for(int i = 0; i < GardenData.nbElt; i++){
+        for(int i = 0; i < imageNames.length; i++){
             listId.add(i);
         }
 
@@ -177,20 +182,22 @@ public class GameEngine extends Activity {
 
         for(int i = 0; i < nbTop; i++) {
             topListId.add(listId.get(i));
-            resID = getResources().getIdentifier(imageNames[listId.get(i)] , "drawable", getPackageName());
+            resID = getResources().getIdentifier(imageNames[listId.get(i)]+"_256_256" , "drawable", getPackageName());
             imageTops[i].setBackgroundResource(resID);
             imageTops[i].setValueImage(listId.get(i));
-            audioID = getResources().getIdentifier("raw/" + imageSong[listId.get(i)], "raw", getPackageName());
+            audioID = getResources().getIdentifier("raw/" + imageNames[listId.get(i)], "raw", getPackageName());
             imageTops[i].setAudioID(audioID);
+            imageTops[i].setName(imageNames[listId.get(i)]);
         }
 
         Collections.shuffle(topListId);
 
         for(int i = 0; i < nbBot; i++) {
             imageBots[i].setValueImage(topListId.get(i));
-            resID = getResources().getIdentifier(imageNames[imageBots[i].getValueImage()], "drawable", getPackageName());
+            resID = getResources().getIdentifier(imageNames[imageBots[i].getValueImage()]+"_256_256", "drawable", getPackageName());
             imageBots[i].setBackgroundResource(resID);
             imageBots[i].setVisibility(View.VISIBLE);
+            imageBots[i].setName(imageNames[imageBots[i].getValueImage()]);
         }
     }
 
@@ -206,5 +213,6 @@ public class GameEngine extends Activity {
         for(ImageElement imageElement : imageTops) {
             imageElement.setImageResource(R.drawable.noborder);
         }
+        textView.setText("");
     }
 }

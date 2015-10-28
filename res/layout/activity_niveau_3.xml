@@ -9,17 +9,17 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="50">
-        <!--android:background="#ff0000">-->
-
+            android:layout_height="50dp">
     </LinearLayout>
-
     <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="right" android:layout_weight="5">
+        <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="20">
+            android:layout_weight="33">
         <!--android:background="#0000ff">-->
         <LinearLayout
                 android:layout_weight="50"
@@ -92,44 +92,61 @@
                         android:layout_gravity="center"/>
             </LinearLayout>
         </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="33">
         <LinearLayout
-                android:layout_weight="50"
+                android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="horizontal">
+                android:layout_height="fill_parent" android:gravity="center_vertical|center_horizontal">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Fourmis"
+                    android:textSize = "100sp"
+                    android:id="@+id/textView" android:layout_gravity="center"
+                    />
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
             <LinearLayout
-                    android:layout_weight="50"
+                    android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical">
+                    android:layout_height="fill_parent" android:layout_weight="50" android:gravity="center">
                 <ImageView
                         android:id="@+id/image_non"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/non_256_256"
-                        android:layout_gravity="center"/>
+                        />
             </LinearLayout>
             <LinearLayout
-                    android:layout_weight="50"
+                    android:orientation="vertical"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical">
+                    android:layout_weight="50"
+                    android:gravity="center">
                 <ImageView
                         android:id="@+id/image_oui"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/oui_256_256"
-                        android:layout_gravity="center"/>
-
+                        />
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="38">
+            android:layout_weight="33">
         <!--android:background="#00ff00"-->
 
         <LinearLayout
@@ -175,6 +192,12 @@
         </LinearLayout>
 
     </LinearLayout>
+</LinearLayout>
+<LinearLayout
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="50dp">
+</LinearLayout>
 
 </LinearLayout>
 

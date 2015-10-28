@@ -23,7 +23,7 @@ public class GardenData {
         "abeille_256_256",
         "coccinelle_256_256",
         "ver_256_256",
-        "araigne_256_256",
+        "araignee_256_256",
         "sauterelle_256_256",
         "escargot_256_256",
         "fourmis_256_256"
