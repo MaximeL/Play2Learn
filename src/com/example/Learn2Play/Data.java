@@ -15,7 +15,7 @@ public class Data {
     public static void setData() {
         //Set garden data
         garden.putInt("size", 1);
-        garden.putStringArray("0", new String[] {
+        garden.putStringArray("prefix", new String[]{
                 "fleur",
                 "papillon",
                 "feuille",
@@ -27,12 +27,17 @@ public class Data {
                 "escargot",
                 "fourmis"
         });
+        garden.putStringArray("sufix" , new String[]{""});
 
         //Set colors data
         colors.putInt("size", 2);
-        colors.putStringArray("0", new String[]{
+        colors.putStringArray("prefix", new String[]{
+                "color1",
+                "color2"
         });
-        colors.putStringArray("1", new String[]{
+        colors.putStringArray("sufix", new String[]{
+                "_bestiole1",
+                "_bestiole2"
         });
     }
 

@@ -21,8 +21,9 @@ import java.util.Collections;
 public class GameEngine extends Activity {
 
     private Bundle allNames;
-    private int sizeAllNames;
-    private String[] names;
+    private int sizesufix;
+    private String[] prefix;
+    private String[] sufix;
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
 
@@ -62,7 +63,9 @@ public class GameEngine extends Activity {
         nbTop = b.getInt("nbTop");
         nbBot = b.getInt("nbBot");
         allNames = b.getBundle("data");
-        sizeAllNames = allNames.getInt("size");
+        prefix = allNames.getStringArray("prefix");
+        sufix = allNames.getStringArray("sufix");
+        sizesufix = sufix.length;
         resID = getResources().getIdentifier("activity_niveau_" + b.getInt("level"), "layout", getPackageName());
         setContentView(resID);
 
@@ -92,6 +95,7 @@ public class GameEngine extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 if(score == nbBot) {
+                    resetHelp();
                     newGame();
                 }
             }
@@ -131,6 +135,14 @@ public class GameEngine extends Activity {
                     imageElement.setImageResource(R.drawable.customborder);
                     imageElement.playSong(GameEngine.this);
                     textView.setText(imageElement.getName().toUpperCase());
+
+                    resetHelp();
+                    //Le boolean est false si la selection est mauvaise. On garde l'aide en haut dans ce cas
+                    boolean tmp = setHelpBot();
+                    if(!tmp) {
+                        resetHelp();
+                        setHelpTop();
+                    }
                 }
             });
         }
@@ -139,6 +151,8 @@ public class GameEngine extends Activity {
             imageElement.getImageButton().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    resetHelp();
+                    setHelpTop();
                     if(selectedItem == imageElement.getValueImage()){
                         selectedItem = -1;
                         score++;
@@ -199,16 +213,16 @@ public class GameEngine extends Activity {
         selectedItem = -1;
         score = 0;
 
-        selectedSet = (int) Math.floor(Math.random()*sizeAllNames);
+        Log.d("GameEngine", "sizesufix = "+sizesufix);
+        selectedSet = (int) Math.floor(Math.random()*sizesufix);
         Log.d("GameEngine", "selectedset = "+selectedSet);
-        names = allNames.getStringArray(selectedSet+"");
 
         textView.setText("");
 
         removeBorders();
         ArrayList<Integer> listId = new ArrayList<Integer>();
         ArrayList<Integer> topListId = new ArrayList<Integer>();
-        for(int i = 0; i < names.length; i++){
+        for(int i = 0; i < prefix.length; i++){
             listId.add(i);
         }
 
@@ -216,23 +230,26 @@ public class GameEngine extends Activity {
 
         for(int i = 0; i < nbTop; i++) {
             topListId.add(listId.get(i));
-            resID = getResources().getIdentifier(names[listId.get(i)]+"_256_256" , "drawable", getPackageName());
+            Log.d("GameEngine", "image name : " + prefix[listId.get(i)]+sufix[selectedSet]+"_256_256");
+            resID = getResources().getIdentifier(prefix[listId.get(i)]+sufix[selectedSet]+"_256_256" , "drawable", getPackageName());
             imageTops[i].setBackgroundResource(resID);
             imageTops[i].setValueImage(listId.get(i));
-            audioID = getResources().getIdentifier("raw/" + names[listId.get(i)], "raw", getPackageName());
+            audioID = getResources().getIdentifier("raw/" + prefix[listId.get(i)], "raw", getPackageName());
             imageTops[i].setAudioID(audioID);
-            imageTops[i].setName(names[listId.get(i)]);
+            imageTops[i].setName(prefix[listId.get(i)]);
         }
 
         Collections.shuffle(topListId);
 
         for(int i = 0; i < nbBot; i++) {
             imageBots[i].setValueImage(topListId.get(i));
-            resID = getResources().getIdentifier(names[imageBots[i].getValueImage()]+"_256_256", "drawable", getPackageName());
+            resID = getResources().getIdentifier(prefix[imageBots[i].getValueImage()]+sufix[selectedSet]+"_256_256", "drawable", getPackageName());
             imageBots[i].setBackgroundResource(resID);
             imageBots[i].setVisibility(View.VISIBLE);
-            imageBots[i].setName(names[imageBots[i].getValueImage()]);
+            imageBots[i].setName(prefix[imageBots[i].getValueImage()]);
         }
+
+        setHelpTop();
     }
 
     @Override
@@ -243,10 +260,43 @@ public class GameEngine extends Activity {
         finish();
     }
 
-    public void removeBorders(){
+    private void removeBorders(){
         for(ImageElement imageElement : imageTops) {
             imageElement.setImageResource(R.drawable.noborder);
         }
         textView.setText("");
+    }
+
+    private void setHelpTop() {
+        if(help) {
+            for(int i = 0; i < nbBot; i++) {
+                for(int j = 0; j < nbTop; j++) {
+                    imageTops[j].activeHepl(imageBots[i].getValueImage());
+                }
+            }
+        }
+    }
+    private boolean setHelpBot() {
+        if(help) {
+            boolean res = false;
+            boolean tmp;
+            for(int i = 0; i < nbBot; i++) {
+                tmp = imageBots[i].activeHepl(selectedItem);
+                if(tmp) res = tmp;
+            }
+            return res;
+        }
+        return true;
+    }
+
+    private void resetHelp() {
+        if(help) {
+            for(int i = 0; i < nbBot; i++) {
+                imageBots[i].hideArrow();
+            }
+            for(int i = 0; i < nbTop; i++) {
+                imageTops[i].hideArrow();
+            }
+        }
     }
 }
