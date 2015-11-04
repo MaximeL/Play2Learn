@@ -135,7 +135,8 @@ public class GameEngine extends Activity {
                     imageElement.setImageResource(R.drawable.customborder);
                     imageElement.playSong(GameEngine.this);
                     textView.setText(imageElement.getName().toUpperCase());
-
+                    if (score != nbBot)
+                        setHelpTop();
                     resetHelp();
                     //Le boolean est false si la selection est mauvaise. On garde l'aide en haut dans ce cas
                     boolean tmp = setHelpBot();
@@ -152,7 +153,6 @@ public class GameEngine extends Activity {
                 @Override
                 public void onClick(View v) {
                     resetHelp();
-                    setHelpTop();
                     if(selectedItem == imageElement.getValueImage()){
                         selectedItem = -1;
                         score++;
