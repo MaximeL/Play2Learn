@@ -2,6 +2,7 @@ package com.example.Learn2Play;
 
 /**
  * Created by marcd on 11/10/2015.
+ *
  */
 public class Data {
 
@@ -12,7 +13,7 @@ public class Data {
         "abeille",
         "coccinelle",
         "ver",
-        "araigne",
+        "araignee",
         "sauterelle",
         "escargot",
         "fourmis"
