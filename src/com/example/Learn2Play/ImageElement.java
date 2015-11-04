@@ -20,6 +20,8 @@ public class ImageElement {
     private int audioID;
     private String name;
 
+    private boolean isResponce = false;
+
     public ImageElement(ImageButton imageButton, ImageView arrow) {
         this.imageButton = imageButton;
         this.arrow = arrow;
@@ -78,5 +80,9 @@ public class ImageElement {
     }
     public void hideArrow() {
         arrow.setVisibility(View.INVISIBLE);
+    }
+
+    public void setIsResponse(int value) {
+        if(value == valueImage) isResponce = true;
     }
 }

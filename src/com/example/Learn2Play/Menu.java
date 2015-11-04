@@ -23,6 +23,8 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        Data.setData();
+
         buttonNiveau1 = (ImageButton) findViewById(R.id.buttonNiveau1);
         buttonNiveau2 = (ImageButton) findViewById(R.id.buttonNiveau2);
         buttonNiveau3 = (ImageButton) findViewById(R.id.buttonNiveau3);
@@ -42,7 +44,8 @@ public class Menu extends Activity {
                 b.putInt("level", 1);
                 b.putInt("nbTop", 3);
                 b.putInt("nbBot", 1);
-                b.putStringArray("data", Data.garden);
+                b.putBundle("data", Data.garden);
+                b.putBoolean("help", true);
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -60,7 +63,8 @@ public class Menu extends Activity {
                 b.putInt("level", 2);
                 b.putInt("nbTop", 4);
                 b.putInt("nbBot", 2);
-                b.putStringArray("data", Data.garden);
+                b.putBundle("data", Data.garden);
+                b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -78,7 +82,8 @@ public class Menu extends Activity {
                 b.putInt("level", 3);
                 b.putInt("nbTop", 5);
                 b.putInt("nbBot", 3);
-                b.putStringArray("data", Data.garden);
+                b.putBundle("data", Data.garden);
+                b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
