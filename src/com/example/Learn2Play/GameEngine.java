@@ -124,6 +124,7 @@ public class GameEngine extends Activity {
                 @Override
                 public void onClick(View v) {
                     if(selectedItem == imageElement.getValueImage()){
+                        selectedItem = -1;
                         score++;
                         new Thread(new Runnable() {
                             @Override
