@@ -95,6 +95,7 @@ public class GameEngine extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 if(score == nbBot) {
+                    resetHelp();
                     newGame();
                 }
             }
@@ -134,6 +135,14 @@ public class GameEngine extends Activity {
                     imageElement.setImageResource(R.drawable.customborder);
                     imageElement.playSong(GameEngine.this);
                     textView.setText(imageElement.getName().toUpperCase());
+
+                    resetHelp();
+                    //Le boolean est false si la selection est mauvaise. On garde l'aide en haut dans ce cas
+                    boolean tmp = setHelpBot();
+                    if(!tmp) {
+                        resetHelp();
+                        setHelpTop();
+                    }
                 }
             });
         }
@@ -142,6 +151,8 @@ public class GameEngine extends Activity {
             imageElement.getImageButton().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    resetHelp();
+                    setHelpTop();
                     if(selectedItem == imageElement.getValueImage()){
                         selectedItem = -1;
                         score++;
@@ -237,6 +248,8 @@ public class GameEngine extends Activity {
             imageBots[i].setVisibility(View.VISIBLE);
             imageBots[i].setName(prefix[imageBots[i].getValueImage()]);
         }
+
+        setHelpTop();
     }
 
     @Override
@@ -254,9 +267,29 @@ public class GameEngine extends Activity {
         textView.setText("");
     }
 
-    private void setHelp() {
+    private void setHelpTop() {
         for(int i = 0; i < nbBot; i++) {
+            for(int j = 0; j < nbTop; j++) {
+                imageTops[j].activeHepl(imageBots[i].getValueImage());
+            }
+        }
+    }
+    private boolean setHelpBot() {
+        boolean res = false;
+        boolean tmp;
+        for(int i = 0; i < nbBot; i++) {
+            tmp = imageBots[i].activeHepl(selectedItem);
+            if(tmp) res = tmp;
+        }
+        return res;
+    }
 
+    private void resetHelp() {
+        for(int i = 0; i < nbBot; i++) {
+            imageBots[i].hideArrow();
+        }
+        for(int i = 0; i < nbTop; i++) {
+            imageTops[i].hideArrow();
         }
     }
 }

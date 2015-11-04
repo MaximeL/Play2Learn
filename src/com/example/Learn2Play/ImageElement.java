@@ -79,14 +79,15 @@ public class ImageElement {
         return name;
     }
 
-    public void activeHepl(int id) {
-        if(valueImage == id) arrow.setVisibility(View.VISIBLE);
+    public boolean activeHepl(int id) {
+        if(valueImage == id) {
+            arrow.setVisibility(View.VISIBLE);
+            isResponce = true;
+        }
+        return isResponce;
     }
     public void hideArrow() {
         arrow.setVisibility(View.INVISIBLE);
-    }
-
-    public void setIsResponse(int value) {
-        if(value == valueImage) isResponce = true;
+        isResponce = false;
     }
 }
