@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Learn2Play</string>
+    <string name="app_name">Jardin Et Découverte</string>
     <string name="jouer">JOUER</string>
     <string name="quitter">QUITTER</string>
 </resources>
