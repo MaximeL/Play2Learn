@@ -35,7 +35,8 @@ public class GameEngine extends Activity {
     private Animation animGetVisibleYes = null;
     private Animation animGetVisibleNo = null;
     private Animation animImageGetOut = null;
-    
+    private Animation animArrow = null;
+
     private TextView textView;
 
     private int nbTop;
@@ -83,6 +84,7 @@ public class GameEngine extends Activity {
         animGetVisibleYes = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_yes);
         animGetVisibleNo = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_no);
         animImageGetOut = AnimationUtils.loadAnimation(this, R.anim.anim_image_get_out);
+        animArrow = AnimationUtils.loadAnimation(this, R.anim.anim_arrow);
 
         animGetVisibleYes.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -271,7 +273,7 @@ public class GameEngine extends Activity {
         if(help) {
             for(int i = 0; i < nbBot; i++) {
                 for(int j = 0; j < nbTop; j++) {
-                    imageTops[j].activeHepl(imageBots[i].getValueImage());
+                    imageTops[j].activeHepl(imageBots[i].getValueImage(), animArrow);
                 }
             }
         }
@@ -281,7 +283,7 @@ public class GameEngine extends Activity {
             boolean res = false;
             boolean tmp;
             for(int i = 0; i < nbBot; i++) {
-                tmp = imageBots[i].activeHepl(selectedItem);
+                tmp = imageBots[i].activeHepl(selectedItem, animArrow);
                 if(tmp) res = tmp;
             }
             return res;
