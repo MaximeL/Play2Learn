@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Fourmis"
-                    android:textSize = "100sp"
+                    android:textSize = "@dimen/textsize"
                     android:id="@+id/textView" android:layout_gravity="center"
                     />
         </LinearLayout>
