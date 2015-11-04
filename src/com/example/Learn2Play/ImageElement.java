@@ -4,6 +4,7 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
 
 /**
@@ -59,6 +60,9 @@ public class ImageElement {
     }
     public void setVisibility(int visibility) {
         imageButton.setVisibility(visibility);
+    }
+    public void startAnimation(Animation anim){
+        imageButton.startAnimation(anim);
     }
 
     public void setName(String name) {
