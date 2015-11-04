@@ -33,6 +33,7 @@ public class GameEngine extends Activity {
 
     private Animation animGetVisibleYes = null;
     private Animation animGetVisibleNo = null;
+    private Animation animImageGetOut = null;
     
     private TextView textView;
 
@@ -78,6 +79,7 @@ public class GameEngine extends Activity {
 
         animGetVisibleYes = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_yes);
         animGetVisibleNo = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_no);
+        animImageGetOut = AnimationUtils.loadAnimation(this, R.anim.anim_image_get_out);
 
         animGetVisibleYes.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -139,7 +141,18 @@ public class GameEngine extends Activity {
                 public void onClick(View v) {
                     if(selectedItem == imageElement.getValueImage()){
                         score++;
-                        imageElement.setVisibility(View.INVISIBLE);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        imageElement.startAnimation(animImageGetOut);
+                                        imageElement.setVisibility(View.INVISIBLE);
+                                    }
+                                });
+                            }
+                        }).start();
                         removeBorders();
                         new Thread(new Runnable() {
                             @Override

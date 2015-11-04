@@ -14,13 +14,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
                 android:name=".GameEngine"
                 android:label="gameEngine"
                 android:screenOrientation="landscape"
                 android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
-
     </application>
 </manifest>
