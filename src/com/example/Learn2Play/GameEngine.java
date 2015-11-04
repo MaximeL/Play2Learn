@@ -268,28 +268,35 @@ public class GameEngine extends Activity {
     }
 
     private void setHelpTop() {
-        for(int i = 0; i < nbBot; i++) {
-            for(int j = 0; j < nbTop; j++) {
-                imageTops[j].activeHepl(imageBots[i].getValueImage());
+        if(help) {
+            for(int i = 0; i < nbBot; i++) {
+                for(int j = 0; j < nbTop; j++) {
+                    imageTops[j].activeHepl(imageBots[i].getValueImage());
+                }
             }
         }
     }
     private boolean setHelpBot() {
-        boolean res = false;
-        boolean tmp;
-        for(int i = 0; i < nbBot; i++) {
-            tmp = imageBots[i].activeHepl(selectedItem);
-            if(tmp) res = tmp;
+        if(help) {
+            boolean res = false;
+            boolean tmp;
+            for(int i = 0; i < nbBot; i++) {
+                tmp = imageBots[i].activeHepl(selectedItem);
+                if(tmp) res = tmp;
+            }
+            return res;
         }
-        return res;
+        return true;
     }
 
     private void resetHelp() {
-        for(int i = 0; i < nbBot; i++) {
-            imageBots[i].hideArrow();
-        }
-        for(int i = 0; i < nbTop; i++) {
-            imageTops[i].hideArrow();
+        if(help) {
+            for(int i = 0; i < nbBot; i++) {
+                imageBots[i].hideArrow();
+            }
+            for(int i = 0; i < nbTop; i++) {
+                imageTops[i].hideArrow();
+            }
         }
     }
 }
