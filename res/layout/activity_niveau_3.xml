@@ -32,64 +32,119 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:orientation="vertical">
-                <ImageButton
-                        android:id="@+id/image_top_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/fleur_256_256"
-                        android:layout_gravity="center"/>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" android:gravity="center_horizontal">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/arrow_1"
+                            android:src="@drawable/arrow_128_128"
+                            android:layout_gravity="center_vertical|right" android:visibility="invisible"/>
+                    <ImageButton
+                            android:id="@+id/image_top_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fleur_256_256"
+                            android:layout_gravity="left|center_vertical"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                     android:layout_weight="20"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical">
-                <ImageButton
-                        android:id="@+id/image_top_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/fleur_256_256"
-                        android:layout_gravity="center"/>
+                    android:orientation="vertical" android:gravity="center_horizontal">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/arrow_2"
+                            android:src="@drawable/arrow_128_128"
+                            android:layout_gravity="center_vertical|right" android:visibility="invisible"/>
+                    <ImageButton
+                            android:id="@+id/image_top_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fleur_256_256"
+                            android:layout_gravity="left|center_vertical"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                    android:layout_weight="20"
+                android:layout_weight="20"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" android:gravity="center_horizontal">
+            <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical">
+                    android:layout_height="fill_parent">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/arrow_3"
+                        android:src="@drawable/arrow_128_128"
+                        android:layout_gravity="center_vertical|right" android:visibility="invisible"/>
                 <ImageButton
                         android:id="@+id/image_top_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/fleur_256_256"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="left|center_vertical"/>
+            </LinearLayout>
+        </LinearLayout>
+
+            <LinearLayout
+                    android:layout_weight="20"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" android:gravity="center_horizontal">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/arrow_4"
+                            android:src="@drawable/arrow_128_128"
+                            android:layout_gravity="center_vertical|right" android:visibility="invisible"/>
+                    <ImageButton
+                            android:id="@+id/image_top_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fleur_256_256"
+                            android:layout_gravity="left|center_vertical"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                     android:layout_weight="20"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical">
-                <ImageButton
-                        android:id="@+id/image_top_4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/fleur_256_256"
-                        android:layout_gravity="center"/>
-            </LinearLayout>
-
-            <LinearLayout
-                    android:layout_weight="20"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="vertical">
-                <ImageButton
-                        android:id="@+id/image_top_5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/fleur_256_256"
-                        android:layout_gravity="center"/>
+                    android:orientation="vertical" android:gravity="center_horizontal">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/arrow_5"
+                            android:src="@drawable/arrow_128_128"
+                            android:layout_gravity="center_vertical|right" android:visibility="invisible"/>
+                    <ImageButton
+                            android:id="@+id/image_top_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fleur_256_256"
+                            android:layout_gravity="left|center_vertical"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -142,56 +197,89 @@
         </LinearLayout>
     </FrameLayout>
 
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="33">
-        <!--android:background="#00ff00"-->
-
         <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="33">
+                android:layout_weight="33" android:gravity="center_horizontal">
+            <!--android:background="#00ff00"-->
 
-        <ImageButton
-                android:id="@+id/image_bot_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/fleur_256_256"
-                android:layout_gravity="center"/>
+            <LinearLayout
+                    android:layout_weight="33"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" android:gravity="center_horizontal">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/arrow_bot_1"
+                            android:src="@drawable/arrow_128_128"
+                            android:layout_gravity="center_vertical|right"
+                            android:visibility="invisible"/>
+                    <ImageButton
+                            android:id="@+id/image_bot_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fleur_256_256"
+                            android:layout_gravity="left|center_vertical"/>
+                </LinearLayout>
             </LinearLayout>
 
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="33">
+            <LinearLayout
+                    android:layout_weight="33"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" android:gravity="center_horizontal">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/arrow_bot_2"
+                            android:src="@drawable/arrow_128_128"
+                            android:layout_gravity="center_vertical|right"
+                            android:visibility="invisible"/>
+                    <ImageButton
+                            android:id="@+id/image_bot_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fleur_256_256"
+                            android:layout_gravity="left|center_vertical"/>
+                </LinearLayout>
+            </LinearLayout>
 
-            <ImageButton
-                    android:id="@+id/image_bot_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/fleur_256_256"
-                    android:layout_gravity="center"/>
+            <LinearLayout
+                    android:layout_weight="33"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" android:gravity="center_horizontal">
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/arrow_bot_3"
+                            android:src="@drawable/arrow_128_128"
+                            android:layout_gravity="center_vertical|right"
+                            android:visibility="invisible"/>
+                    <ImageButton
+                            android:id="@+id/image_bot_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fleur_256_256"
+                            android:layout_gravity="left|center_vertical"/>
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
-
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="33">
-
-            <ImageButton
-                    android:id="@+id/image_bot_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/fleur_256_256"
-                    android:layout_gravity="center"/>
-        </LinearLayout>
-
-    </LinearLayout>
 </LinearLayout>
 <LinearLayout
 android:orientation="vertical"

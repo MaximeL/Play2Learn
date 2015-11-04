@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,9 +20,13 @@ import java.util.Collections;
  */
 public class GameEngine extends Activity {
 
+    private Bundle allNames;
+    private int sizeAllNames;
     private String[] names;
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
+
+    private ImageView[] arrows;
 
     private ImageView imageNon;
     private ImageView imageOui;
@@ -37,8 +42,14 @@ public class GameEngine extends Activity {
 
     private int score = 0;
     private int selectedItem = -1;
+    private int selectedSet = 0;
+
     int resID;
     int audioID;
+    int imgbtnID;
+    int arrowID;
+
+    boolean help;
 
     private MediaPlayer gameSuccess;
 
@@ -50,9 +61,12 @@ public class GameEngine extends Activity {
         Bundle b = getIntent().getExtras();
         nbTop = b.getInt("nbTop");
         nbBot = b.getInt("nbBot");
-        names = b.getStringArray("data");
+        allNames = b.getBundle("data");
+        sizeAllNames = allNames.getInt("size");
         resID = getResources().getIdentifier("activity_niveau_" + b.getInt("level"), "layout", getPackageName());
         setContentView(resID);
+
+        help = b.getBoolean("help");
 
         imageNon = (ImageView) findViewById(R.id.image_non);
         imageOui = (ImageView) findViewById(R.id.image_oui);
@@ -90,16 +104,18 @@ public class GameEngine extends Activity {
 
         imageTops = new ImageElement[nbTop];
         for(int i=0; i < nbTop; i++) {
-            resID = getResources().getIdentifier("image_top_"+(i+1), "id", getPackageName());
-            imageTops[i] = new ImageElement((ImageButton) findViewById(resID));
+            imgbtnID = getResources().getIdentifier("image_top_"+(i+1), "id", getPackageName());
+            arrowID = getResources().getIdentifier("arrow_top_"+(i+1), "id", getPackageName());
+            imageTops[i] = new ImageElement((ImageButton) findViewById(imgbtnID), (ImageView) findViewById(arrowID));
         }
 
         gameSuccess = MediaPlayer.create(this, R.raw.fx_applause);
 
         imageBots = new ImageElement[nbBot];
         for(int i=0; i < nbBot; i++) {
-            resID = getResources().getIdentifier("image_bot_"+(i+1), "id", getPackageName());
-            imageBots[i] = new ImageElement((ImageButton) findViewById(resID));
+            imgbtnID = getResources().getIdentifier("image_bot_"+(i+1), "id", getPackageName());
+            arrowID = getResources().getIdentifier("arrow_bot_"+(i+1), "id", getPackageName());
+            imageBots[i] = new ImageElement((ImageButton) findViewById(imgbtnID), (ImageView) findViewById(arrowID));
             audioID = getResources().getIdentifier("raw/" + "coccinelle", "raw", getPackageName());
             imageBots[i].setAudioID(audioID);
         }
@@ -182,6 +198,10 @@ public class GameEngine extends Activity {
     private void newGame(){
         selectedItem = -1;
         score = 0;
+
+        selectedSet = (int) Math.floor(Math.random()*sizeAllNames);
+        Log.d("GameEngine", "selectedset = "+selectedSet);
+        names = allNames.getStringArray(selectedSet+"");
 
         textView.setText("");
 

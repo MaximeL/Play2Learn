@@ -8,56 +8,94 @@
 
         <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp">
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_gravity="right" android:layout_weight="5">
+                android:layout_height="match_parent"
+                android:layout_margin="20dp">
                 <LinearLayout
                         android:layout_weight="33"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:orientation="horizontal" android:baselineAligned="false">
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
 
                         <LinearLayout
                                 android:layout_weight="33"
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent"
                                 android:orientation="vertical">
-                                <ImageButton
-                                        android:id="@+id/image_top_1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:background="@drawable/fleur_256_256"
-                                        android:layout_gravity="center"/>
+                                <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:gravity="center_horizontal">
+                                        <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/arrow_top_1"
+                                                android:src="@drawable/arrow_128_128"
+                                                android:layout_gravity="center_vertical|right"
+                                                android:visibility="invisible"/>
+                                        <ImageButton
+                                                android:id="@+id/image_top_1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/fleur_256_256"
+                                                android:layout_gravity="left|center_vertical"/>
+                                </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                                 android:layout_weight="33"
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent"
-                                android:orientation="vertical">
-                                <ImageButton
-                                        android:id="@+id/image_top_2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:background="@drawable/fleur_256_256"
-                                        android:layout_gravity="center"/>
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
+                                <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:gravity="center_horizontal">
+                                        <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/arrow_top_2"
+                                                android:src="@drawable/arrow_128_128"
+                                                android:layout_gravity="center_vertical|right"
+                                                android:visibility="invisible"/>
+                                        <ImageButton
+                                                android:id="@+id/image_top_2"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/fleur_256_256"
+                                                android:layout_gravity="left|center_vertical"/>
+                                </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                                 android:layout_weight="33"
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent"
-                                android:orientation="vertical">
-                                <ImageButton
-                                        android:id="@+id/image_top_3"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:background="@drawable/fleur_256_256"
-                                        android:layout_gravity="center"/>
+                                android:orientation="vertical"
+                                android:gravity="center_horizontal">
+                                <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:gravity="center_horizontal">
+                                        <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/arrow_top_3"
+                                                android:src="@drawable/arrow_128_128"
+                                                android:layout_gravity="center_vertical|right"
+                                                android:visibility="invisible"/>
+                                        <ImageButton
+                                                android:id="@+id/image_top_3"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/fleur_256_256"
+                                                android:layout_gravity="left|center_vertical"/>
+                                </LinearLayout>
                         </LinearLayout>
                 </LinearLayout>
                 <FrameLayout
@@ -67,14 +105,16 @@
                         <LinearLayout
                                 android:orientation="vertical"
                                 android:layout_width="fill_parent"
-                                android:layout_height="fill_parent" android:gravity="center_vertical|center_horizontal">
+                                android:layout_height="fill_parent"
+                                android:gravity="center_vertical|center_horizontal">
                                 <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textAppearance="?android:attr/textAppearanceLarge"
                                         android:text="Fourmis"
                                         android:textSize = "100sp"
-                                        android:id="@+id/textView" android:layout_gravity="center"
+                                        android:id="@+id/textView"
+                                        android:layout_gravity="center"
                                         />
                         </LinearLayout>
                         <LinearLayout
@@ -84,7 +124,8 @@
                                 <LinearLayout
                                         android:orientation="vertical"
                                         android:layout_width="fill_parent"
-                                        android:layout_height="fill_parent" android:layout_weight="50"
+                                        android:layout_height="fill_parent"
+                                        android:layout_weight="50"
                                         android:gravity="center">
                                         <ImageView
                                                 android:id="@+id/image_non"
@@ -112,22 +153,37 @@
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:layout_weight="33">
+                        android:layout_weight="33"
+                        android:gravity="center_horizontal">
                         <!--android:background="#00ff00"-->
 
-                        <ImageButton
-                                android:id="@+id/image_bot_1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/fleur_256_256"
-                                android:layout_gravity="center"/>
+
+                        <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical">
+                                <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:gravity="center_horizontal">
+                                        <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:id="@+id/arrow_bot_1"
+                                                android:src="@drawable/arrow_128_128"
+                                                android:layout_gravity="center_vertical|right"
+                                                android:visibility="invisible"/>
+                                        <ImageButton
+                                                android:id="@+id/image_bot_1"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/fleur_256_256"
+                                                android:layout_gravity="left|center_vertical"/>
+                                </LinearLayout>
+                        </LinearLayout>
 
                 </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="50dp">
         </LinearLayout>
 
 </LinearLayout>
