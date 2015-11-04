@@ -3,6 +3,7 @@ package com.example.Learn2Play;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 /**
  * Created by Maxime on 10/14/2015.
@@ -10,11 +11,14 @@ import android.widget.ImageButton;
 public class ImageElement {
 
     private ImageButton imageButton;
+    private ImageView arrow;
+
     private int valueImage;
     private String name;
 
-    public ImageElement(ImageButton imageButton) {
+    public ImageElement(ImageButton imageButton, ImageView arrow) {
         this.imageButton = imageButton;
+        this.arrow = arrow;
         this.valueImage = -1;
     }
 
@@ -50,5 +54,12 @@ public class ImageElement {
 
     public String getName() {
         return name;
+    }
+
+    public void activeHepl(int id) {
+        if(valueImage == id) arrow.setVisibility(View.VISIBLE);
+    }
+    public void hideArrow() {
+        arrow.setVisibility(View.INVISIBLE);
     }
 }

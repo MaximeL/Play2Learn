@@ -23,6 +23,8 @@ public class GameEngine extends Activity {
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
 
+    private ImageView[] arrows;
+
     private ImageView imageNon;
     private ImageView imageOui;
 
@@ -36,7 +38,12 @@ public class GameEngine extends Activity {
 
     private int score = 0;
     private int selectedItem = -1;
+
     int resID;
+    int imgbtnID;
+    int arrowID;
+
+    boolean help;
 
     private MediaPlayer gameSuccess;
 
@@ -87,8 +94,9 @@ public class GameEngine extends Activity {
 
         imageTops = new ImageElement[nbTop];
         for(int i=0; i < nbTop; i++) {
-            resID = getResources().getIdentifier("image_top_"+(i+1), "id", getPackageName());
-            imageTops[i] = new ImageElement((ImageButton) findViewById(resID));
+            imgbtnID = getResources().getIdentifier("image_top_"+(i+1), "id", getPackageName());
+            arrowID = getResources().getIdentifier("arrow_"+(i+1), "id", getPackageName());
+            imageTops[i] = new ImageElement((ImageButton) findViewById(resID), (ImageView) findViewById(arrowID));
         }
 
         gameSuccess = MediaPlayer.create(this, R.raw.fx_applause);
@@ -96,7 +104,7 @@ public class GameEngine extends Activity {
         imageBots = new ImageElement[nbBot];
         for(int i=0; i < nbBot; i++) {
             resID = getResources().getIdentifier("image_bot_"+(i+1), "id", getPackageName());
-            imageBots[i] = new ImageElement((ImageButton) findViewById(resID));
+            imageBots[i] = new ImageElement((ImageButton) findViewById(resID), null);
         }
 
         newGame();
