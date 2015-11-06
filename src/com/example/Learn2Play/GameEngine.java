@@ -46,12 +46,14 @@ public class GameEngine extends Activity {
     private int selectedItem = -1;
     private int selectedSet = 0;
 
-    int resID;
-    int audioID;
-    int imgbtnID;
-    int arrowID;
+    private int resID;
+    private int audioID;
+    private int imgbtnID;
+    private int arrowID;
 
-    boolean help;
+    private boolean help;
+
+    private String text;
 
     private MediaPlayer gameSuccess;
 
@@ -137,7 +139,9 @@ public class GameEngine extends Activity {
                     selectedItem = imageElement.getValueImage();
                     imageElement.setImageResource(R.drawable.customborder);
                     imageElement.playSong(GameEngine.this);
-                    textView.setText(imageElement.getName().toUpperCase());
+                    text = imageElement.getName().toUpperCase();
+                    text = text.replaceAll("_", " ");
+                    textView.setText(text);
                     if (score != nbBot)
                         setHelpTop();
                     resetHelp();
@@ -159,6 +163,8 @@ public class GameEngine extends Activity {
                     if(selectedItem == imageElement.getValueImage()){
                         selectedItem = -1;
                         score++;
+                        if(score != nbBot)
+                            setHelpTop();
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -188,6 +194,7 @@ public class GameEngine extends Activity {
                     } else if(selectedItem != -1){
                         removeBorders();
                         selectedItem = -1;
+                        setHelpTop();
                         new Thread(new Runnable() {
                             @Override
                             public void run() {

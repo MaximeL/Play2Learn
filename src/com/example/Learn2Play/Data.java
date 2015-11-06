@@ -20,7 +20,7 @@ public class Data {
                 "feuille",
                 "abeille",
                 "coccinelle",
-                "ver",
+                "ver_de_terre",
                 "araignee",
                 "sauterelle",
                 "escargot",
