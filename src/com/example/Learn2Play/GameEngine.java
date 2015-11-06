@@ -85,6 +85,7 @@ public class GameEngine extends Activity {
         animGetVisibleNo = AnimationUtils.loadAnimation(this, R.anim.anim_get_visible_no);
         animImageGetOut = AnimationUtils.loadAnimation(this, R.anim.anim_image_get_out);
         animArrow = AnimationUtils.loadAnimation(this, R.anim.anim_arrow);
+        animArrow.setRepeatMode(Animation.INFINITE);
 
         animGetVisibleYes.setAnimationListener(new Animation.AnimationListener() {
             @Override

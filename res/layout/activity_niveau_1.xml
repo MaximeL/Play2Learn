@@ -161,8 +161,16 @@
                         <LinearLayout
                                 android:layout_width="fill_parent"
                                 android:layout_height="fill_parent"
-                                android:orientation="vertical">
+                                android:orientation="horizontal">
                                 <LinearLayout
+                                        android:layout_weight="33"
+                                        android:orientation="horizontal"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:gravity="center_horizontal">
+                                </LinearLayout>
+                                <LinearLayout
+                                        android:layout_weight="33"
                                         android:orientation="horizontal"
                                         android:layout_width="fill_parent"
                                         android:layout_height="fill_parent"
@@ -173,14 +181,23 @@
                                                 android:id="@+id/arrow_bot_1"
                                                 android:src="@drawable/arrow_wood_128"
                                                 android:layout_gravity="center_vertical|right"
-                                                android:visibility="invisible"/>
+                                                android:visibility="invisible"
+                                                />
                                         <ImageButton
                                                 android:id="@+id/image_bot_1"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:background="@drawable/fleur_256_256"
-                                                android:layout_gravity="left|center_vertical"/>
+                                                android:layout_gravity="left|center_vertical"
+                                                />
                                 </LinearLayout>
+                                <LinearLayout
+                                        android:layout_weight="33"
+                                        android:orientation="horizontal"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="fill_parent"
+                                        android:gravity="center_horizontal">
+                                        </LinearLayout>
                         </LinearLayout>
 
                 </LinearLayout>

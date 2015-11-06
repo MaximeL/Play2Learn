@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <translate
-            android:interpolator="@android:anim/linear_interpolator"
-            android:fromXDelta="0%p"
-            android:toXDelta="10%p"
-            android:duration="750"
-            android:startOffset="0"
-            android:repeatCount="infinite"></translate>
 
     <translate
             android:interpolator="@android:anim/linear_interpolator"
-            android:fromXDelta="10%p"
-            android:toXDelta="-10%p"
+            android:fromXDelta="0%p"
+            android:toXDelta="-2%p"
+            android:duration="750"
+            android:startOffset="0"
+            ></translate>
+
+    <translate
+            android:interpolator="@android:anim/linear_interpolator"
+            android:fromXDelta="-2%p"
+            android:toXDelta="2%p"
             android:duration="750"
             android:startOffset="750"
-            android:repeatCount="infinite"></translate>
+            ></translate>
+
 
 </set>
