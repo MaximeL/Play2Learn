@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+/**
+ * Created by marcd on 06/11/2015.
+ */
 public class Menu extends Activity {
-    private ImageButton buttonNiveau0;
-    private ImageButton buttonNiveau1;
-    private ImageButton buttonNiveau2;
-    private ImageButton buttonNiveau3;
+    private ImageButton buttonForm;
+    private ImageButton buttonColor;
 
     private MediaPlayer songButtonClickLeaf;
     private MediaPlayer instruMenu;
@@ -24,12 +25,8 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Data.setData();
-
-        buttonNiveau0 = (ImageButton) findViewById(R.id.buttonNiveau0);
-        buttonNiveau1 = (ImageButton) findViewById(R.id.buttonNiveau1);
-        buttonNiveau2 = (ImageButton) findViewById(R.id.buttonNiveau2);
-        buttonNiveau3 = (ImageButton) findViewById(R.id.buttonNiveau3);
+        buttonForm = (ImageButton) findViewById(R.id.buttonForm);
+        buttonColor = (ImageButton) findViewById(R.id.buttonColor);
 
         songButtonClickLeaf = MediaPlayer.create(this, R.raw.fx_button_click_leaf);
         instruMenu = MediaPlayer.create(this, R.raw.instru_menu);
@@ -37,18 +34,11 @@ public class Menu extends Activity {
         instruMenu.start();
         instruMenu.setLooping(true);
 
-        buttonNiveau0.setOnClickListener(new View.OnClickListener() {
+        buttonForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playSongTouch();
-                Intent intent = new Intent(Menu.this, GameEngine.class);
-                Bundle b = new Bundle();
-                b.putInt("level", 1);
-                b.putInt("nbTop", 3);
-                b.putInt("nbBot", 1);
-                b.putBundle("data", Data.garden);
-                b.putBoolean("help", true);
-                intent.putExtras(b);
+                Intent intent = new Intent(Menu.this, MenuForm.class);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -56,64 +46,17 @@ public class Menu extends Activity {
             }
         });
 
-        buttonNiveau1.setOnClickListener(new View.OnClickListener() {
+        buttonColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 playSongTouch();
-                Intent intent = new Intent(Menu.this, GameEngine.class);
-                Bundle b = new Bundle();
-                b.putInt("level", 1);
-                b.putInt("nbTop", 3);
-                b.putInt("nbBot", 1);
-                b.putBundle("data", Data.garden);
-                b.putBoolean("help", false);
-                intent.putExtras(b);
+                Intent intent = new Intent(Menu.this, MenuForm.class);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
                 instruMenu.stop();
             }
         });
-
-        buttonNiveau2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playSongTouch();
-                Intent intent = new Intent(Menu.this, GameEngine.class);
-                Bundle b = new Bundle();
-                b.putInt("level", 2);
-                b.putInt("nbTop", 4);
-                b.putInt("nbBot", 2);
-                b.putBundle("data", Data.garden);
-                b.putBoolean("help", false);
-                intent.putExtras(b);
-                startActivity(intent);
-                overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
-                finish();
-                instruMenu.stop();
-            }
-        });
-
-        buttonNiveau3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                playSongTouch();
-                Intent intent = new Intent(Menu.this, GameEngine.class);
-                Bundle b = new Bundle();
-                b.putInt("level", 3);
-                b.putInt("nbTop", 5);
-                b.putInt("nbBot", 3);
-                b.putBundle("data", Data.garden);
-                b.putBoolean("help", false);
-                intent.putExtras(b);
-                startActivity(intent);
-                overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
-                finish();
-                instruMenu.stop();
-            }
-        });
-
-
     }
 
     private void playSongTouch(){

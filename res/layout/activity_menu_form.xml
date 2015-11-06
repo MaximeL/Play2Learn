@@ -29,7 +29,7 @@
             android:layout_weight="20">
 
         <ImageButton
-                android:id="@+id/buttonForm"
+                android:id="@+id/buttonNiveau0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -46,13 +46,45 @@
             android:layout_weight="20">
 
         <ImageButton
-                android:id="@+id/buttonColor"
+                android:id="@+id/buttonNiveau1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/niveau"
+                android:src="@drawable/niveau_facile"
                 android:background="#00ffffff"/>
 
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="20">
+
+        <ImageButton
+                android:id="@+id/buttonNiveau2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/niveau_moyen"
+                android:background="#00ffffff"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="20">
+
+        <ImageButton
+                android:id="@+id/buttonNiveau3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/niveau_difficile"
+                android:background="#00ffffff"/>
 
     </LinearLayout>
 
