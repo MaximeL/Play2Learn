@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class Menu extends Activity {
+    private ImageButton buttonNiveau0;
     private ImageButton buttonNiveau1;
     private ImageButton buttonNiveau2;
     private ImageButton buttonNiveau3;
@@ -25,6 +26,7 @@ public class Menu extends Activity {
 
         Data.setData();
 
+        buttonNiveau0 = (ImageButton) findViewById(R.id.buttonNiveau0);
         buttonNiveau1 = (ImageButton) findViewById(R.id.buttonNiveau1);
         buttonNiveau2 = (ImageButton) findViewById(R.id.buttonNiveau2);
         buttonNiveau3 = (ImageButton) findViewById(R.id.buttonNiveau3);
@@ -34,6 +36,25 @@ public class Menu extends Activity {
 
         instruMenu.start();
         instruMenu.setLooping(true);
+
+        buttonNiveau0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                playSongTouch();
+                Intent intent = new Intent(Menu.this, GameEngine.class);
+                Bundle b = new Bundle();
+                b.putInt("level", 1);
+                b.putInt("nbTop", 3);
+                b.putInt("nbBot", 1);
+                b.putBundle("data", Data.garden);
+                b.putBoolean("help", true);
+                intent.putExtras(b);
+                startActivity(intent);
+                overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
+                finish();
+                instruMenu.stop();
+            }
+        });
 
         buttonNiveau1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +66,7 @@ public class Menu extends Activity {
                 b.putInt("nbTop", 3);
                 b.putInt("nbBot", 1);
                 b.putBundle("data", Data.garden);
-                b.putBoolean("help", true);
+                b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);

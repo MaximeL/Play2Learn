@@ -29,6 +29,23 @@
             android:layout_weight="20">
 
         <ImageButton
+                android:id="@+id/buttonNiveau0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/niveau"
+                android:background="#00ffffff"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="20">
+
+        <ImageButton
                 android:id="@+id/buttonNiveau1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
