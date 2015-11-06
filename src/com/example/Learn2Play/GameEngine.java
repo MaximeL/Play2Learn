@@ -140,6 +140,9 @@ public class GameEngine extends Activity {
                     imageElement.setImageResource(R.drawable.customborder);
                     imageElement.playSong(GameEngine.this);
                     text = imageElement.getName().toUpperCase();
+                    if(text.equals("ARAIGNEE")){
+                        text = "ARAIGN" + '\u00C9' + "E";
+                    }
                     text = text.replaceAll("_", " ");
                     textView.setText(text);
                     if (score != nbBot)
