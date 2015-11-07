@@ -14,7 +14,6 @@ public class MenuForm extends Activity {
     private ImageButton buttonNiveau3;
 
     private MediaPlayer songButtonClick;
-    private MediaPlayer instruMenu;
 
     /**
      * Called when the activity is first created.
@@ -32,10 +31,7 @@ public class MenuForm extends Activity {
         buttonNiveau3 = (ImageButton) findViewById(R.id.buttonNiveau3);
 
         songButtonClick = MediaPlayer.create(this, R.raw.fx_knock_door);
-        instruMenu = MediaPlayer.create(this, R.raw.instru_menu);
 
-        instruMenu.start();
-        instruMenu.setLooping(true);
 
         buttonNiveau0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +48,7 @@ public class MenuForm extends Activity {
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                instruMenu.stop();
+                Menu.instruMenu.stop();
             }
         });
 
@@ -71,7 +67,7 @@ public class MenuForm extends Activity {
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                instruMenu.stop();
+                Menu.instruMenu.stop();
             }
         });
 
@@ -90,7 +86,7 @@ public class MenuForm extends Activity {
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                instruMenu.stop();
+                Menu.instruMenu.stop();
             }
         });
 
@@ -109,7 +105,7 @@ public class MenuForm extends Activity {
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                instruMenu.stop();
+                Menu.instruMenu.stop();
             }
         });
 

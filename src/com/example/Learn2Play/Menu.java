@@ -15,7 +15,7 @@ public class Menu extends Activity {
     private ImageButton buttonColor;
 
     private MediaPlayer songButtonClick;
-    private MediaPlayer instruMenu;
+    public static MediaPlayer instruMenu;
 
     /**
      * Called when the activity is first created.
@@ -42,7 +42,6 @@ public class Menu extends Activity {
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                instruMenu.stop();
             }
         });
 
@@ -54,7 +53,6 @@ public class Menu extends Activity {
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                instruMenu.stop();
             }
         });
     }

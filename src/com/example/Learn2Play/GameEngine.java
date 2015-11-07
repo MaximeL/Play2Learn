@@ -274,7 +274,7 @@ public class GameEngine extends Activity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(GameEngine.this, MenuForm.class);
+        Intent intent = new Intent(GameEngine.this, Menu.class);
         startActivity(intent);
         overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
         finish();
