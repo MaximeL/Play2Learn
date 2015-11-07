@@ -56,6 +56,7 @@ public class GameEngine extends Activity {
     private String text;
 
     private MediaPlayer gameSuccess;
+    private MediaPlayer fxFail;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -119,6 +120,7 @@ public class GameEngine extends Activity {
         }
 
         gameSuccess = MediaPlayer.create(this, R.raw.fx_applause);
+        fxFail = MediaPlayer.create(this, R.raw.sound_fx_fail);
 
         imageBots = new ImageElement[nbBot];
         for(int i=0; i < nbBot; i++) {
@@ -195,6 +197,7 @@ public class GameEngine extends Activity {
                             }
                         }).start();
                     } else if(selectedItem != -1){
+                        playSongFail();
                         removeBorders();
                         selectedItem = -1;
                         setHelpTop();
@@ -220,6 +223,10 @@ public class GameEngine extends Activity {
 
     private void playSongGameSuccess(){
         gameSuccess.start();
+    }
+
+    private void playSongFail(){
+        fxFail.start();
     }
 
     private void newGame(){
