@@ -13,7 +13,7 @@ public class MenuForm extends Activity {
     private ImageButton buttonNiveau2;
     private ImageButton buttonNiveau3;
 
-    private MediaPlayer songButtonClickLeaf;
+    private MediaPlayer songButtonClick;
     private MediaPlayer instruMenu;
 
     /**
@@ -31,7 +31,7 @@ public class MenuForm extends Activity {
         buttonNiveau2 = (ImageButton) findViewById(R.id.buttonNiveau2);
         buttonNiveau3 = (ImageButton) findViewById(R.id.buttonNiveau3);
 
-        songButtonClickLeaf = MediaPlayer.create(this, R.raw.fx_button_click_leaf);
+        songButtonClick = MediaPlayer.create(this, R.raw.fx_knock_door);
         instruMenu = MediaPlayer.create(this, R.raw.instru_menu);
 
         instruMenu.start();
@@ -117,6 +117,6 @@ public class MenuForm extends Activity {
     }
 
     private void playSongTouch(){
-        songButtonClickLeaf.start();
+        songButtonClick.start();
     }
 }

@@ -14,7 +14,7 @@ public class Menu extends Activity {
     private ImageButton buttonForm;
     private ImageButton buttonColor;
 
-    private MediaPlayer songButtonClickLeaf;
+    private MediaPlayer songButtonClick;
     private MediaPlayer instruMenu;
 
     /**
@@ -28,7 +28,7 @@ public class Menu extends Activity {
         buttonForm = (ImageButton) findViewById(R.id.buttonForm);
         buttonColor = (ImageButton) findViewById(R.id.buttonColor);
 
-        songButtonClickLeaf = MediaPlayer.create(this, R.raw.fx_button_click_leaf);
+        songButtonClick = MediaPlayer.create(this, R.raw.fx_knock_door);
         instruMenu = MediaPlayer.create(this, R.raw.instru_menu);
 
         instruMenu.start();
@@ -60,6 +60,6 @@ public class Menu extends Activity {
     }
 
     private void playSongTouch(){
-        songButtonClickLeaf.start();
+        songButtonClick.start();
     }
 }
