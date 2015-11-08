@@ -123,6 +123,7 @@ public class GameEngine extends Activity {
 
         gameSuccess = MediaPlayer.create(this, R.raw.fx_applause);
         fxFail = MediaPlayer.create(this, R.raw.sound_fx_fail);
+        fxFail.setVolume(1.9f, 1.9f);
 
         imageBots = new ImageElement[nbBot];
         for(int i=0; i < nbBot; i++) {
