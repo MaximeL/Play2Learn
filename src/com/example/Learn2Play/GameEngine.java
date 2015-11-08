@@ -24,6 +24,7 @@ public class GameEngine extends Activity {
     private int sizesufix;
     private String[] prefix;
     private String[] sufix;
+    private boolean solutionSufix;
     private ImageElement[] imageTops;
     private ImageElement[] imageBots;
 
@@ -69,6 +70,7 @@ public class GameEngine extends Activity {
         allNames = b.getBundle("data");
         prefix = allNames.getStringArray("prefix");
         sufix = allNames.getStringArray("sufix");
+        solutionSufix = allNames.getBoolean("differentSolution");
         sizesufix = sufix.length;
         resID = getResources().getIdentifier("activity_niveau_" + b.getInt("level"), "layout", getPackageName());
         setContentView(resID);
@@ -263,7 +265,11 @@ public class GameEngine extends Activity {
 
         for(int i = 0; i < nbBot; i++) {
             imageBots[i].setValueImage(topListId.get(i));
-            resID = getResources().getIdentifier(prefix[imageBots[i].getValueImage()]+sufix[selectedSet]+"_256_256", "drawable", getPackageName());
+            if(solutionSufix) {
+                resID = getResources().getIdentifier(prefix[imageBots[i].getValueImage()] + "_solution" + "_256_256", "drawable", getPackageName());
+            } else {
+                resID = getResources().getIdentifier(prefix[imageBots[i].getValueImage()] + sufix[selectedSet] + "_256_256", "drawable", getPackageName());
+            }
             imageBots[i].setBackgroundResource(resID);
             imageBots[i].setVisibility(View.VISIBLE);
             imageBots[i].setName(prefix[imageBots[i].getValueImage()]);

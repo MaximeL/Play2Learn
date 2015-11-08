@@ -27,16 +27,21 @@ public class Data {
                 "fourmis"
         });
         garden.putStringArray("sufix" , new String[]{""});
+        garden.putBoolean("differentSolution", false);
 
         //Set colors data
         colors.putStringArray("prefix", new String[]{
-                "color1",
-                "color2"
+                "bleu",
+                "vert",
+                "rouge",
+                "rose",
+                "jaune"
         });
         colors.putStringArray("sufix", new String[]{
                 "_bestiole1",
                 "_bestiole2"
         });
+        colors.putBoolean("differentSolution", true);
     }
 
 }
