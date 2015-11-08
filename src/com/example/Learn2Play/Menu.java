@@ -68,4 +68,9 @@ public class Menu extends Activity {
     private void playSongTouch(){
         songButtonClick.start();
     }
+
+    public void onBackPressed() {
+        finish();
+        System.exit(0);
+    }
 }

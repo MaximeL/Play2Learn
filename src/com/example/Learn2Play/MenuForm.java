@@ -115,4 +115,11 @@ public class MenuForm extends Activity {
     private void playSongTouch(){
         songButtonClick.start();
     }
+
+    public void onBackPressed() {
+        Intent intent = new Intent(MenuForm.this, Menu.class);
+        startActivity(intent);
+        overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
+        finish();
+    }
 }
