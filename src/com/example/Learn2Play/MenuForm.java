@@ -61,7 +61,7 @@ public class MenuForm extends Activity {
                 b.putInt("level", 1);
                 b.putInt("nbTop", 3);
                 b.putInt("nbBot", 1);
-                b.putBundle("data", Data.garden);
+                b.putBundle("data", Data.colors);
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);

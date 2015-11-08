@@ -38,8 +38,9 @@ public class Data {
                 "jaune"
         });
         colors.putStringArray("sufix", new String[]{
-                "_bestiole1",
-                "_bestiole2"
+                "_papillon",
+                "_coccinelle",
+                "_fleur"
         });
         colors.putBoolean("differentSolution", true);
     }
