@@ -25,6 +25,8 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        Data.setData();
+
         buttonForm = (ImageButton) findViewById(R.id.buttonForm);
         buttonColor = (ImageButton) findViewById(R.id.buttonColor);
 
@@ -39,6 +41,9 @@ public class Menu extends Activity {
             public void onClick(View v) {
                 playSongTouch();
                 Intent intent = new Intent(Menu.this, MenuForm.class);
+                Bundle b = new Bundle();
+                b.putBundle("data", Data.garden);
+                intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -50,6 +55,9 @@ public class Menu extends Activity {
             public void onClick(View v) {
                 playSongTouch();
                 Intent intent = new Intent(Menu.this, MenuForm.class);
+                Bundle b = new Bundle();
+                b.putBundle("data", Data.colors);
+                intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();

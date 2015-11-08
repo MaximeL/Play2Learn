@@ -23,7 +23,7 @@ public class MenuForm extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_form);
 
-        Data.setData();
+        Bundle bdl = getIntent().getExtras();
 
         buttonNiveau0 = (ImageButton) findViewById(R.id.buttonNiveau0);
         buttonNiveau1 = (ImageButton) findViewById(R.id.buttonNiveau1);
@@ -42,7 +42,7 @@ public class MenuForm extends Activity {
                 b.putInt("level", 1);
                 b.putInt("nbTop", 3);
                 b.putInt("nbBot", 1);
-                b.putBundle("data", Data.garden);
+                b.putBundle("data", bdl.getBundle("data"));
                 b.putBoolean("help", true);
                 intent.putExtras(b);
                 startActivity(intent);
@@ -61,7 +61,7 @@ public class MenuForm extends Activity {
                 b.putInt("level", 1);
                 b.putInt("nbTop", 3);
                 b.putInt("nbBot", 1);
-                b.putBundle("data", Data.colors);
+                b.putBundle("data", bdl.getBundle("data"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
@@ -80,7 +80,7 @@ public class MenuForm extends Activity {
                 b.putInt("level", 2);
                 b.putInt("nbTop", 4);
                 b.putInt("nbBot", 2);
-                b.putBundle("data", Data.garden);
+                b.putBundle("data", bdl.getBundle("data"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
@@ -99,7 +99,7 @@ public class MenuForm extends Activity {
                 b.putInt("level", 3);
                 b.putInt("nbTop", 5);
                 b.putInt("nbBot", 3);
-                b.putBundle("data", Data.garden);
+                b.putBundle("data", bdl.getBundle("data"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
