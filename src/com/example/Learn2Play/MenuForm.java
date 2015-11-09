@@ -43,6 +43,7 @@ public class MenuForm extends Activity {
                 b.putInt("nbTop", 3);
                 b.putInt("nbBot", 1);
                 b.putBundle("data", bdl.getBundle("data"));
+                b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", true);
                 intent.putExtras(b);
                 startActivity(intent);
@@ -62,6 +63,7 @@ public class MenuForm extends Activity {
                 b.putInt("nbTop", 3);
                 b.putInt("nbBot", 1);
                 b.putBundle("data", bdl.getBundle("data"));
+                b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
@@ -81,6 +83,7 @@ public class MenuForm extends Activity {
                 b.putInt("nbTop", 4);
                 b.putInt("nbBot", 2);
                 b.putBundle("data", bdl.getBundle("data"));
+                b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
@@ -100,6 +103,7 @@ public class MenuForm extends Activity {
                 b.putInt("nbTop", 5);
                 b.putInt("nbBot", 3);
                 b.putBundle("data", bdl.getBundle("data"));
+                b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 startActivity(intent);
