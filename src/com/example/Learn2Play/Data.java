@@ -39,7 +39,6 @@ public class Data {
         });
         colors.putStringArray("sufix", new String[]{
                 "_papillon",
-                "_coccinelle",
                 "_fleur"
         });
         colors.putBoolean("differentSolution", true);
