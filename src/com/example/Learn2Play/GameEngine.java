@@ -139,7 +139,7 @@ public class GameEngine extends Activity {
             arrowID = getResources().getIdentifier("arrow_bot_"+(i+1), "id", getPackageName());
             imageBots[i] = new ImageElement((ImageButton) findViewById(imgbtnID), (ImageView) findViewById(arrowID));
             audioID = getResources().getIdentifier("raw/" + "coccinelle", "raw", getPackageName());
-            imageBots[i].setAudioID(audioID);
+            imageBots[i].setAudioID(GameEngine.this, audioID);
         }
 
         newGame();
@@ -151,7 +151,7 @@ public class GameEngine extends Activity {
                     removeBorders();
                     selectedItem = imageElement.getValueImage();
                     imageElement.setImageResource(R.drawable.customborder);
-                    imageElement.playSong(GameEngine.this);
+                    imageElement.playSong();
                     text = imageElement.getName().toUpperCase();
                     if(text.equals("ARAIGNEE")){
                         text = "ARAIGN" + '\u00C9' + "E";
@@ -266,7 +266,7 @@ public class GameEngine extends Activity {
             imageTops[i].setBackgroundResource(resID);
             imageTops[i].setValueImage(listId.get(i));
             audioID = getResources().getIdentifier("raw/" + prefix[listId.get(i)], "raw", getPackageName());
-            imageTops[i].setAudioID(audioID);
+            imageTops[i].setAudioID(GameEngine.this, audioID);
             imageTops[i].setName(prefix[listId.get(i)]);
         }
 
