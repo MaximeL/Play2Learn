@@ -8,9 +8,7 @@ import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-/**
- * Created by Maxime on 10/14/2015.
- */
+
 public class ImageElement {
 
     private ImageButton imageButton;

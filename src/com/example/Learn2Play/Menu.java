@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-/**
- * Created by marcd on 06/11/2015.
- */
+
 public class Menu extends Activity {
     private ImageButton buttonForm;
     private ImageButton buttonColor;

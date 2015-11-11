@@ -15,9 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by Maxime on 10/14/2015.
- */
+
 public class GameEngine extends Activity {
 
     private Bundle allNames;

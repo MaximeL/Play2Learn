@@ -2,10 +2,7 @@ package com.example.Learn2Play;
 
 import android.os.Bundle;
 
-/**
- * Created by marcd on 11/10/2015.
- *
- */
+
 public class Data {
 
     public static Bundle garden = new Bundle();
