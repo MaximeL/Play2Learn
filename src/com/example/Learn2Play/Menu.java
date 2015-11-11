@@ -41,6 +41,7 @@ public class Menu extends Activity {
                 Intent intent = new Intent(Menu.this, MenuForm.class);
                 Bundle b = new Bundle();
                 b.putBundle("data", Data.garden);
+                b.putString("gameMode", "forms");
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -55,6 +56,7 @@ public class Menu extends Activity {
                 Intent intent = new Intent(Menu.this, MenuForm.class);
                 Bundle b = new Bundle();
                 b.putBundle("data", Data.colors);
+                b.putString("gameMode", "colors");
                 intent.putExtras(b);
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -65,5 +67,10 @@ public class Menu extends Activity {
 
     private void playSongTouch(){
         songButtonClick.start();
+    }
+
+    public void onBackPressed() {
+        finish();
+        System.exit(0);
     }
 }

@@ -56,6 +56,8 @@ public class GameEngine extends Activity {
 
     private MediaPlayer gameSuccess;
     private MediaPlayer fxFail;
+    private MediaPlayer audioHelpForms;
+    private MediaPlayer audioHelpColors;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,14 @@ public class GameEngine extends Activity {
         animArrow = AnimationUtils.loadAnimation(this, R.anim.anim_arrow);
         animArrow.setRepeatMode(Animation.INFINITE);
 
+        if(b.getString("gameMode").equals("forms")){
+            audioHelpForms = MediaPlayer.create(this, R.raw.help_formes);
+            audioHelpForms.start();
+        } else if(b.getString("gameMode").equals("colors")){
+            audioHelpColors = MediaPlayer.create(this, R.raw.help_couleurs);
+            audioHelpColors.start();
+        }
+
         animGetVisibleYes.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -121,6 +131,7 @@ public class GameEngine extends Activity {
 
         gameSuccess = MediaPlayer.create(this, R.raw.fx_applause);
         fxFail = MediaPlayer.create(this, R.raw.sound_fx_fail);
+        fxFail.setVolume(1.9f, 1.9f);
 
         imageBots = new ImageElement[nbBot];
         for(int i=0; i < nbBot; i++) {
