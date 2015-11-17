@@ -41,4 +41,6 @@ public class Data {
         colors.putBoolean("differentSolution", true);
     }
 
+
+
 }

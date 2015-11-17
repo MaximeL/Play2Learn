@@ -96,4 +96,8 @@ public class ImageElement {
     public ImageView getArrow() {
         return arrow;
     }
+
+    public void release() {
+        songAnimal.release();
+    }
 }

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.io.IOException;
+
 
 public class Menu extends Activity {
     private ImageButton buttonForm;
@@ -23,7 +25,7 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Data.setData();
+        initGame();
 
         buttonForm = (ImageButton) findViewById(R.id.buttonForm);
         buttonColor = (ImageButton) findViewById(R.id.buttonColor);
@@ -43,6 +45,7 @@ public class Menu extends Activity {
                 b.putBundle("data", Data.garden);
                 b.putString("gameMode", "forms");
                 intent.putExtras(b);
+                songButtonClick.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -58,6 +61,7 @@ public class Menu extends Activity {
                 b.putBundle("data", Data.colors);
                 b.putString("gameMode", "colors");
                 intent.putExtras(b);
+                songButtonClick.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -72,5 +76,9 @@ public class Menu extends Activity {
     public void onBackPressed() {
         finish();
         System.exit(0);
+    }
+
+    private void initGame() {
+        Data.setData();
     }
 }

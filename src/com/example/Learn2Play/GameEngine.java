@@ -112,6 +112,8 @@ public class GameEngine extends Activity {
             public void onAnimationEnd(Animation animation) {
                 if(score == nbBot) {
                     resetHelp();
+                    for(int i = 0; i < nbTop; i++)
+                        imageTops[i].release();
                     newGame();
                 }
             }
@@ -289,6 +291,8 @@ public class GameEngine extends Activity {
 
     @Override
     public void onBackPressed() {
+        for(int i = 0; i < nbTop; i++)
+            imageTops[i].release();
         Intent intent = new Intent(GameEngine.this, Menu.class);
         startActivity(intent);
         overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);

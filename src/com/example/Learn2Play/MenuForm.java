@@ -46,10 +46,11 @@ public class MenuForm extends Activity {
                 b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", true);
                 intent.putExtras(b);
+                songButtonClick.release();
+                Menu.instruMenu.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                Menu.instruMenu.stop();
             }
         });
 
@@ -66,10 +67,11 @@ public class MenuForm extends Activity {
                 b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
+                songButtonClick.release();
+                Menu.instruMenu.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                Menu.instruMenu.stop();
             }
         });
 
@@ -86,10 +88,11 @@ public class MenuForm extends Activity {
                 b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
+                songButtonClick.release();
+                Menu.instruMenu.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                Menu.instruMenu.stop();
             }
         });
 
@@ -106,10 +109,11 @@ public class MenuForm extends Activity {
                 b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
+                songButtonClick.release();
+                Menu.instruMenu.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
-                Menu.instruMenu.stop();
             }
         });
 
