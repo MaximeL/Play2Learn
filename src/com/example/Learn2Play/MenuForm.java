@@ -32,7 +32,6 @@ public class MenuForm extends Activity {
 
         songButtonClick = MediaPlayer.create(this, R.raw.fx_knock_door);
 
-
         buttonNiveau0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +45,6 @@ public class MenuForm extends Activity {
                 b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", true);
                 intent.putExtras(b);
-                songButtonClick.release();
                 Menu.instruMenu.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -67,7 +65,6 @@ public class MenuForm extends Activity {
                 b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
-                songButtonClick.release();
                 Menu.instruMenu.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -88,7 +85,6 @@ public class MenuForm extends Activity {
                 b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
-                songButtonClick.release();
                 Menu.instruMenu.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
@@ -109,7 +105,6 @@ public class MenuForm extends Activity {
                 b.putString("gameMode", bdl.getString("gameMode"));
                 b.putBoolean("help", false);
                 intent.putExtras(b);
-                songButtonClick.release();
                 Menu.instruMenu.release();
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);

@@ -53,6 +53,7 @@ public class GameEngine extends Activity {
     private boolean help;
 
     private String text;
+    private String gameMode;
 
     private MediaPlayer gameSuccess;
     private MediaPlayer fxFail;
@@ -67,6 +68,7 @@ public class GameEngine extends Activity {
         Bundle b = getIntent().getExtras();
         nbTop = b.getInt("nbTop");
         nbBot = b.getInt("nbBot");
+        gameMode = b.getString("gameMode");
         allNames = b.getBundle("data");
         prefix = allNames.getStringArray("prefix");
         sufix = allNames.getStringArray("sufix");
@@ -92,10 +94,10 @@ public class GameEngine extends Activity {
         animArrow = AnimationUtils.loadAnimation(this, R.anim.anim_arrow);
         animArrow.setRepeatMode(Animation.INFINITE);
 
-        if(b.getString("gameMode").equals("forms")){
+        if(gameMode.equals("forms")){
             audioHelpForms = MediaPlayer.create(this, R.raw.help_formes);
             audioHelpForms.start();
-        } else if(b.getString("gameMode").equals("colors")){
+        } else if(gameMode.equals("colors")){
             audioHelpColors = MediaPlayer.create(this, R.raw.help_couleurs);
             audioHelpColors.start();
         }
@@ -296,6 +298,13 @@ public class GameEngine extends Activity {
         Intent intent = new Intent(GameEngine.this, Menu.class);
         startActivity(intent);
         overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
+        gameSuccess.release();
+        fxFail.release();
+        if(gameMode.equals("forms")){
+            audioHelpForms.release();
+        } else if(gameMode.equals("colors")){
+            audioHelpColors.release();
+        }
         finish();
     }
 
