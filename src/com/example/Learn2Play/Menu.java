@@ -79,4 +79,16 @@ public class Menu extends Activity {
     private void initGame() {
         Data.setData();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Menu.instruMenu.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Menu.instruMenu.start();
+    }
 }

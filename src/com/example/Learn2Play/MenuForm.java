@@ -46,6 +46,7 @@ public class MenuForm extends Activity {
                 b.putBoolean("help", true);
                 intent.putExtras(b);
                 Menu.instruMenu.release();
+                Menu.instruMenu = null;
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -66,6 +67,7 @@ public class MenuForm extends Activity {
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 Menu.instruMenu.release();
+                Menu.instruMenu = null;
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -86,6 +88,7 @@ public class MenuForm extends Activity {
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 Menu.instruMenu.release();
+                Menu.instruMenu = null;
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -106,6 +109,7 @@ public class MenuForm extends Activity {
                 b.putBoolean("help", false);
                 intent.putExtras(b);
                 Menu.instruMenu.release();
+                Menu.instruMenu = null;
                 startActivity(intent);
                 overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
                 finish();
@@ -124,5 +128,19 @@ public class MenuForm extends Activity {
         startActivity(intent);
         overridePendingTransition(R.transition.fade_in_opacity, R.transition.fade_out_opacity);
         finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(Menu.instruMenu != null) {
+            Menu.instruMenu.pause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Menu.instruMenu.start();
     }
 }
