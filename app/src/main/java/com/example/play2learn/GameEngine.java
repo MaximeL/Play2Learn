@@ -149,14 +149,15 @@ public class GameEngine extends Activity {
         newGame();
 
         for(ImageElement imageElement : imageTops) {
+            final ImageElement imgElemen = imageElement;
             imageElement.getImageButton().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     removeBorders();
-                    selectedItem = imageElement.getValueImage();
-                    imageElement.setImageResource(R.drawable.customborder);
-                    imageElement.playSong();
-                    text = imageElement.getName().toUpperCase();
+                    selectedItem = imgElemen.getValueImage();
+                    imgElemen.setImageResource(R.drawable.customborder);
+                    imgElemen.playSong();
+                    text = imgElemen.getName().toUpperCase();
                     if(text.equals("ARAIGNEE")){
                         text = "ARAIGN" + '\u00C9' + "E";
                     }
@@ -176,11 +177,12 @@ public class GameEngine extends Activity {
         }
 
         for(ImageElement imageElement : imageBots) {
+            final ImageElement imgElement = imageElement;
             imageElement.getImageButton().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     resetHelp();
-                    if(selectedItem == imageElement.getValueImage()){
+                    if(selectedItem == imgElement.getValueImage()){
                         selectedItem = -1;
                         score++;
                         if(score != nbBot)
@@ -191,8 +193,8 @@ public class GameEngine extends Activity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        imageElement.startAnimation(animImageGetOut);
-                                        imageElement.setVisibility(View.INVISIBLE);
+                                        imgElement.startAnimation(animImageGetOut);
+                                        imgElement.setVisibility(View.INVISIBLE);
                                     }
                                 });
                             }

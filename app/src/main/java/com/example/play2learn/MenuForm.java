@@ -23,7 +23,7 @@ public class MenuForm extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_form);
 
-        Bundle bdl = getIntent().getExtras();
+        final Bundle bdl = getIntent().getExtras();
 
         buttonNiveau0 = (ImageButton) findViewById(R.id.buttonNiveau0);
         buttonNiveau1 = (ImageButton) findViewById(R.id.buttonNiveau1);
